@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Закладки - VLOGE</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="/" class="logo">
+                    <img src="/img/logo/logo.png" alt="VLOGE" class="logo__img">
+                </a>
+                
+                <div class="burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="nav" id="nav">
+                    <a href="/" class="nav__link">Все</a>
+                    <a href="#" class="nav__link">Полезные ссылки</a>
+                    <a href="#" class="nav__link">Ресурсы</a>
+                    <a href="#" class="nav__link">О нас</a>
+                </nav>
+
+                <div class="user-profile active" id="userProfile">
+                    <button class="user-profile__btn" id="profileBtn">
+                        <div class="user-profile__avatar" id="userAvatar">ИИ</div>
+                        <span class="user-profile__name" id="userName">Иван Иванов</span>
+                        <div class="user-profile__arrow"></div>
+                    </button>
+
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown__header">
+                            <div class="user-dropdown__header-name" id="dropdownName">Иван Иванов</div>
+                            <div class="user-dropdown__header-email" id="dropdownEmail">admin@gmail.com</div>
+                        </div>
+
+                        <div class="user-dropdown__menu">
+                            <a href="/profile" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">👤</span>
+                                <span>Мой профиль</span>
+                            </a>
+                            <a href="/my-articles" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">📝</span>
+                                <span>Мои статьи</span>
+                            </a>
+                            <a href="/bookmarks" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">🔖</span>
+                                <span>Закладки</span>
+                            </a>
+                            <a href="/settings" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">⚙️</span>
+                                <span>Настройки</span>
+                            </a>
+                        </div>
+
+                        <div class="user-dropdown__divider"></div>
+
+                        <div class="user-dropdown__menu">
+                            <a href="#" class="user-dropdown__item user-dropdown__logout" id="logoutBtn">
+                                <span class="user-dropdown__item-icon">🚪</span>
+                                <span>Выйти</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-page">
+        <div class="container">
+            <div class="profile-layout">
+                <!-- Боковое меню -->
+                <aside class="profile-sidebar">
+                    <nav class="profile-nav">
+                        <a href="/profile" class="profile-nav__item">
+                            <span class="profile-nav__icon">👤</span>
+                            <span>Личные данные</span>
+                        </a>
+                        <a href="/my-articles" class="profile-nav__item">
+                            <span class="profile-nav__icon">📝</span>
+                            <span>Мои статьи</span>
+                        </a>
+                        <a href="/bookmarks" class="profile-nav__item active">
+                            <span class="profile-nav__icon">🔖</span>
+                            <span>Закладки</span>
+                        </a>
+                        <a href="/settings" class="profile-nav__item">
+                            <span class="profile-nav__icon">⚙️</span>
+                            <span>Настройки</span>
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Основной контент -->
+                <div class="profile-content">
+                    <div class="profile-header">
+                        <h1 class="profile-title">Сохранённые статьи</h1>
+                        <p class="profile-subtitle">23 статьи в закладках</p>
+                    </div>
+
+                    <!-- Сетка закладок -->
+                    <div class="bookmarks-grid">
+                        <!-- Закладка 1 -->
+                        <div class="bookmark-card">
+                            <div class="bookmark-card__image">
+                                <img src="https://via.placeholder.com/400x250/00D856/ffffff?text=Статья" alt="Статья">
+                                <button class="bookmark-card__remove" title="Удалить из закладок">🔖</button>
+                            </div>
+                            <div class="bookmark-card__content">
+                                <span class="bookmark-card__category">Программирование</span>
+                                <h3 class="bookmark-card__title">React 18: Новые возможности</h3>
+                                <p class="bookmark-card__author">Автор: Петр Петров</p>
+                                <div class="bookmark-card__meta">
+                                    <span>⏱ 8 мин</span>
+                                    <span>👁️ 1.2K</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Закладка 2 -->
+                        <div class="bookmark-card">
+                            <div class="bookmark-card__image">
+                                <img src="https://via.placeholder.com/400x250/2196F3/ffffff?text=Дизайн" alt="Дизайн">
+                                <button class="bookmark-card__remove" title="Удалить из закладок">🔖</button>
+                            </div>
+                            <div class="bookmark-card__content">
+                                <span class="bookmark-card__category">Дизайн</span>
+                                <h3 class="bookmark-card__title">Тренды UI/UX 2026</h3>
+                                <p class="bookmark-card__author">Автор: Анна Смирнова</p>
+                                <div class="bookmark-card__meta">
+                                    <span>⏱ 6 мин</span>
+                                    <span>👁️ 890</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Закладка 3 -->
+                        <div class="bookmark-card">
+                            <div class="bookmark-card__image">
+                                <img src="https://via.placeholder.com/400x250/FF9800/ffffff?text=Маркетинг" alt="Маркетинг">
+                                <button class="bookmark-card__remove" title="Удалить из закладок">🔖</button>
+                            </div>
+                            <div class="bookmark-card__content">
+                                <span class="bookmark-card__category">Маркетинг</span>
+                                <h3 class="bookmark-card__title">SEO оптимизация сайта</h3>
+                                <p class="bookmark-card__author">Автор: Мария Иванова</p>
+                                <div class="bookmark-card__meta">
+                                    <span>⏱ 10 мин</span>
+                                    <span>👁️ 2.3K</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Закладка 4 -->
+                        <div class="bookmark-card">
+                            <div class="bookmark-card__image">
+                                <img src="https://via.placeholder.com/400x250/9C27B0/ffffff?text=AI" alt="AI">
+                                <button class="bookmark-card__remove" title="Удалить из закладок">🔖</button>
+                            </div>
+                            <div class="bookmark-card__content">
+                                <span class="bookmark-card__category">Нейросети</span>
+                                <h3 class="bookmark-card__title">ChatGPT для разработчиков</h3>
+                                <p class="bookmark-card__author">Автор: Алексей Сидоров</p>
+                                <div class="bookmark-card__meta">
+                                    <span>⏱ 12 мин</span>
+                                    <span>👁️ 3.5K</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Закладка 5 -->
+                        <div class="bookmark-card">
+                            <div class="bookmark-card__image">
+                                <img src="https://via.placeholder.com/400x250/4CAF50/ffffff?text=Аналитика" alt="Аналитика">
+                                <button class="bookmark-card__remove" title="Удалить из закладок">🔖</button>
+                            </div>
+                            <div class="bookmark-card__content">
+                                <span class="bookmark-card__category">Аналитика</span>
+                                <h3 class="bookmark-card__title">Google Analytics 4: Гид</h3>
+                                <p class="bookmark-card__author">Автор: Дмитрий Козлов</p>
+                                <div class="bookmark-card__meta">
+                                    <span>⏱ 15 мин</span>
+                                    <span>👁️ 1.8K</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Закладка 6 -->
+                        <div class="bookmark-card">
+                            <div class="bookmark-card__image">
+                                <img src="https://via.placeholder.com/400x250/F44336/ffffff?text=Менеджмент" alt="Менеджмент">
+                                <button class="bookmark-card__remove" title="Удалить из закладок">🔖</button>
+                            </div>
+                            <div class="bookmark-card__content">
+                                <span class="bookmark-card__category">Менеджмент</span>
+                                <h3 class="bookmark-card__title">Agile и Scrum на практике</h3>
+                                <p class="bookmark-card__author">Автор: Елена Волкова</p>
+                                <div class="bookmark-card__meta">
+                                    <span>⏱ 9 мин</span>
+                                    <span>👁️ 1.5K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <!-- Колонка 1: Контакты -->
+                <div class="footer__column">
+                    <div class="footer__logo">
+                        <img src="/img/logo/logo-black.png" alt="VLOGE" class="footer__logo-img">
+                    </div>
+                    <div class="footer__contacts">
+                        <a href="tel:" class="footer__phone">+7 (700) 700-70-70</a>
+                        <a href="mailto:" class="footer__email">vloge@gmail.com</a>
+                        <p class="footer__address">Алматы, Толе би/Розыбакиева 14/35</p>
+                    </div>
+                    <div class="footer__social">
+                        <a href="#" class="social-link" aria-label="ВКонтакте">
+                            ВК
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram">
+                            ТГ
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Колонка 2: Курсы -->
+                <div class="footer__column">
+                    <h4 class="footer__title">Категории</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Программирование</a></li>
+                        <li><a href="#">Маркетинг</a></li>
+                        <li><a href="#">Дизайн</a></li>
+                        <li><a href="#">Аналитика</a></li>
+                        <li><a href="#">Менеджмент</a></li>
+                        <li><a href="#">Нейросети</a></li>
+                        <li><a href="#">Игры</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 3: Ученикам -->
+                <div class="footer__column">
+                    <h4 class="footer__title">О нас</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Наша миссия</a></li>
+                        <li><a href="#">Наша команда</a></li>
+                        <li><a href="#">Отзывы</a></li>
+                        <li><a href="#">Партнёры</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 4: Документы + Интересное -->
+                <div class="footer__column">
+                    <h4 class="footer__title">Документы</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Юридическая информация</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Нижняя часть футера -->
+            <div class="footer__bottom">
+                <div class="footer__divider"></div>
+                <div class="footer__info">
+                    <p class="footer__copyright">© VLOGE 2026</p>
+                    <p class="footer__description">
+                        Мы делимся знаниями, идеями и опытом так, чтобы каждый материал был понятным, интересным и действительно полезным. Наша цель — не просто писать статьи, а помогать читателям узнавать новое, расти и находить ответы на важные для них вопросы.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/profile.js"></script>
+    <script src="/js/bookmarks.js"></script>
+</body>
+</html>

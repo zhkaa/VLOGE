@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой профиль - VLOGE</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="/" class="logo">
+                    <img src="/img/logo/logo.png" alt="VLOGE" class="logo__img">
+                </a>
+                
+                <div class="burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="nav" id="nav">
+                    <a href="/" class="nav__link">Все</a>
+                    <a href="#" class="nav__link">Полезные ссылки</a>
+                    <a href="#" class="nav__link">Ресурсы</a>
+                    <a href="#" class="nav__link">О нас</a>
+                </nav>
+
+                <div class="user-profile active" id="userProfile">
+                    <button class="user-profile__btn" id="profileBtn">
+                        <div class="user-profile__avatar" id="userAvatar">ИИ</div>
+                        <span class="user-profile__name" id="userName">Иван Иванов</span>
+                        <div class="user-profile__arrow"></div>
+                    </button>
+
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown__header">
+                            <div class="user-dropdown__header-name" id="dropdownName">Иван Иванов</div>
+                            <div class="user-dropdown__header-email" id="dropdownEmail">admin@gmail.com</div>
+                        </div>
+
+                        <div class="user-dropdown__menu">
+                            <a href="/profile" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">👤</span>
+                                <span>Мой профиль</span>
+                            </a>
+                            <a href="/my-articles" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">📝</span>
+                                <span>Мои статьи</span>
+                            </a>
+                            <a href="/bookmarks" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">🔖</span>
+                                <span>Закладки</span>
+                            </a>
+                            <a href="/settings" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">⚙️</span>
+                                <span>Настройки</span>
+                            </a>
+                        </div>
+
+                        <div class="user-dropdown__divider"></div>
+
+                        <div class="user-dropdown__menu">
+                            <a href="#" class="user-dropdown__item user-dropdown__logout" id="logoutBtn">
+                                <span class="user-dropdown__item-icon">🚪</span>
+                                <span>Выйти</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-page">
+        <div class="container">
+            <div class="profile-layout">
+                <!-- Боковое меню -->
+                <aside class="profile-sidebar">
+                    <nav class="profile-nav">
+                        <a href="/profile" class="profile-nav__item active">
+                            <span class="profile-nav__icon">👤</span>
+                            <span>Личные данные</span>
+                        </a>
+                        <a href="/my-articles" class="profile-nav__item">
+                            <span class="profile-nav__icon">📝</span>
+                            <span>Мои статьи</span>
+                        </a>
+                        <a href="/bookmarks" class="profile-nav__item">
+                            <span class="profile-nav__icon">🔖</span>
+                            <span>Закладки</span>
+                        </a>
+                        <a href="/settings" class="profile-nav__item">
+                            <span class="profile-nav__icon">⚙️</span>
+                            <span>Настройки</span>
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Основной контент -->
+                <div class="profile-content">
+                    <div class="profile-header">
+                        <h1 class="profile-title">Мой профиль</h1>
+                        <p class="profile-subtitle">Управляйте своей личной информацией</p>
+                    </div>
+
+                    <!-- Карточка профиля -->
+                    <div class="profile-card">
+                        <div class="profile-card__header">
+                            <h2>Личная информация</h2>
+                        </div>
+
+                        <div class="profile-card__body">
+                            <!-- Аватар -->
+                            <div class="profile-avatar-section">
+                                <div class="profile-avatar-wrapper">
+                                    <div class="profile-avatar-large" id="profileAvatarLarge">ИИ</div>
+                                    <button class="profile-avatar-upload">
+                                        <span>📷</span>
+                                    </button>
+                                </div>
+                                <div class="profile-avatar-info">
+                                    <h3>Фото профиля</h3>
+                                    <p>Рекомендуемый размер: 400x400px</p>
+                                    <div class="profile-avatar-actions">
+                                        <button class="btn-secondary">Загрузить фото</button>
+                                        <button class="btn-text">Удалить</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Форма данных -->
+                            <form class="profile-form" id="profileForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Имя</label>
+                                        <input type="text" class="form-input" value="Иван" id="firstName">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Фамилия</label>
+                                        <input type="text" class="form-input" value="Иванов" id="lastName">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-input" value="admin@gmail.com" id="email">
+                                    <span class="form-hint">На этот email будут приходить уведомления</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Телефон</label>
+                                    <input type="tel" class="form-input" placeholder="+7 (___) ___-__-__" id="phone">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">О себе</label>
+                                    <textarea class="form-textarea" rows="4" placeholder="Расскажите о себе..." id="bio"></textarea>
+                                    <span class="form-hint">Максимум 500 символов</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Сайт</label>
+                                    <input type="url" class="form-input" placeholder="https://yourwebsite.com" id="website">
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn-primary">Сохранить изменения</button>
+                                    <button type="reset" class="btn-secondary">Отменить</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Статистика -->
+                    <div class="profile-stats">
+                        <div class="stat-box">
+                            <div class="stat-box__value">12</div>
+                            <div class="stat-box__label">Статей опубликовано</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-box__value">1,234</div>
+                            <div class="stat-box__label">Просмотров</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-box__value">456</div>
+                            <div class="stat-box__label">Лайков</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-box__value">23</div>
+                            <div class="stat-box__label">Закладок</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <!-- Колонка 1: Контакты -->
+                <div class="footer__column">
+                    <div class="footer__logo">
+                        <img src="/img/logo/logo-black.png" alt="VLOGE" class="footer__logo-img">
+                    </div>
+                    <div class="footer__contacts">
+                        <a href="tel:" class="footer__phone">+7 (700) 700-70-70</a>
+                        <a href="mailto:" class="footer__email">vloge@gmail.com</a>
+                        <p class="footer__address">Алматы, Толе би/Розыбакиева 14/35</p>
+                    </div>
+                    <div class="footer__social">
+                        <a href="#" class="social-link" aria-label="ВКонтакте">
+                            ВК
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram">
+                            ТГ
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Колонка 2: Курсы -->
+                <div class="footer__column">
+                    <h4 class="footer__title">Категории</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Программирование</a></li>
+                        <li><a href="#">Маркетинг</a></li>
+                        <li><a href="#">Дизайн</a></li>
+                        <li><a href="#">Аналитика</a></li>
+                        <li><a href="#">Менеджмент</a></li>
+                        <li><a href="#">Нейросети</a></li>
+                        <li><a href="#">Игры</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 3: Ученикам -->
+                <div class="footer__column">
+                    <h4 class="footer__title">О нас</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Наша миссия</a></li>
+                        <li><a href="#">Наша команда</a></li>
+                        <li><a href="#">Отзывы</a></li>
+                        <li><a href="#">Партнёры</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 4: Документы + Интересное -->
+                <div class="footer__column">
+                    <h4 class="footer__title">Документы</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Юридическая информация</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Нижняя часть футера -->
+            <div class="footer__bottom">
+                <div class="footer__divider"></div>
+                <div class="footer__info">
+                    <p class="footer__copyright">© VLOGE 2026</p>
+                    <p class="footer__description">
+                        Мы делимся знаниями, идеями и опытом так, чтобы каждый материал был понятным, интересным и действительно полезным. Наша цель — не просто писать статьи, а помогать читателям узнавать новое, расти и находить ответы на важные для них вопросы.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/profile.js"></script>
+</body>
+</html>

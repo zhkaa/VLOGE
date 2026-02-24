@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки - VLOGE</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="/" class="logo">
+                    <img src="/img/logo/logo.png" alt="VLOGE" class="logo__img">
+                </a>
+                
+                <div class="burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="nav" id="nav">
+                    <a href="/" class="nav__link">Все</a>
+                    <a href="#" class="nav__link">Полезные ссылки</a>
+                    <a href="#" class="nav__link">Ресурсы</a>
+                    <a href="#" class="nav__link">О нас</a>
+                </nav>
+
+                <div class="user-profile active" id="userProfile">
+                    <button class="user-profile__btn" id="profileBtn">
+                        <div class="user-profile__avatar" id="userAvatar">ИИ</div>
+                        <span class="user-profile__name" id="userName">Иван Иванов</span>
+                        <div class="user-profile__arrow"></div>
+                    </button>
+
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown__header">
+                            <div class="user-dropdown__header-name" id="dropdownName">Иван Иванов</div>
+                            <div class="user-dropdown__header-email" id="dropdownEmail">admin@gmail.com</div>
+                        </div>
+
+                        <div class="user-dropdown__menu">
+                            <a href="/profile" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">👤</span>
+                                <span>Мой профиль</span>
+                            </a>
+                            <a href="/my-articles" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">📝</span>
+                                <span>Мои статьи</span>
+                            </a>
+                            <a href="/bookmarks" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">🔖</span>
+                                <span>Закладки</span>
+                            </a>
+                            <a href="/settings" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">⚙️</span>
+                                <span>Настройки</span>
+                            </a>
+                        </div>
+
+                        <div class="user-dropdown__divider"></div>
+
+                        <div class="user-dropdown__menu">
+                            <a href="#" class="user-dropdown__item user-dropdown__logout" id="logoutBtn">
+                                <span class="user-dropdown__item-icon">🚪</span>
+                                <span>Выйти</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-page">
+        <div class="container">
+            <div class="profile-layout">
+                <!-- Боковое меню -->
+                <aside class="profile-sidebar">
+                    <nav class="profile-nav">
+                        <a href="/profile" class="profile-nav__item">
+                            <span class="profile-nav__icon">👤</span>
+                            <span>Личные данные</span>
+                        </a>
+                        <a href="/my-articles" class="profile-nav__item">
+                            <span class="profile-nav__icon">📝</span>
+                            <span>Мои статьи</span>
+                        </a>
+                        <a href="/bookmarks" class="profile-nav__item">
+                            <span class="profile-nav__icon">🔖</span>
+                            <span>Закладки</span>
+                        </a>
+                        <a href="/settings" class="profile-nav__item active">
+                            <span class="profile-nav__icon">⚙️</span>
+                            <span>Настройки</span>
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Основной контент -->
+                <div class="profile-content">
+                    <div class="profile-header">
+                        <h1 class="profile-title">Настройки</h1>
+                        <p class="profile-subtitle">Управление аккаунтом и уведомлениями</p>
+                    </div>
+
+                    <!-- Настройки -->
+                    <div class="settings-section">
+                        <h2 class="settings-section__title">Безопасность</h2>
+                        
+                        <div class="settings-item">
+                            <div class="settings-item__info">
+                                <h3 class="settings-item__title">Изменить пароль</h3>
+                                <p class="settings-item__description">Обновите пароль для повышения безопасности</p>
+                            </div>
+                            <button class="settings-item__btn">Изменить</button>
+                        </div>
+
+                        <div class="settings-item">
+                            <div class="settings-item__info">
+                                <h3 class="settings-item__title">Двухфакторная аутентификация</h3>
+                                <p class="settings-item__description">Дополнительная защита аккаунта</p>
+                            </div>
+                            <label class="settings-toggle">
+                                <input type="checkbox">
+                                <span class="settings-toggle__slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section__title">Уведомления</h2>
+                        
+                        <div class="settings-item">
+                            <div class="settings-item__info">
+                                <h3 class="settings-item__title">Email уведомления</h3>
+                                <p class="settings-item__description">Получать новости и обновления на почту</p>
+                            </div>
+                            <label class="settings-toggle">
+                                <input type="checkbox" checked>
+                                <span class="settings-toggle__slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-item">
+                            <div class="settings-item__info">
+                                <h3 class="settings-item__title">Комментарии к статьям</h3>
+                                <p class="settings-item__description">Уведомления о новых комментариях</p>
+                            </div>
+                            <label class="settings-toggle">
+                                <input type="checkbox" checked>
+                                <span class="settings-toggle__slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-item">
+                            <div class="settings-item__info">
+                                <h3 class="settings-item__title">Лайки и реакции</h3>
+                                <p class="settings-item__description">Когда кто-то лайкает ваши статьи</p>
+                            </div>
+                            <label class="settings-toggle">
+                                <input type="checkbox">
+                                <span class="settings-toggle__slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section__title">Приватность</h2>
+                        
+                        <div class="settings-item">
+                            <div class="settings-item__info">
+                                <h3 class="settings-item__title">Публичный профиль</h3>
+                                <p class="settings-item__description">Ваш профиль виден всем пользователям</p>
+                            </div>
+                            <label class="settings-toggle">
+                                <input type="checkbox" checked>
+                                <span class="settings-toggle__slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-item">
+                            <div class="settings-item__info">
+                                <h3 class="settings-item__title">Показывать статистику</h3>
+                                <p class="settings-item__description">Количество статей и просмотров в профиле</p>
+                            </div>
+                            <label class="settings-toggle">
+                                <input type="checkbox" checked>
+                                <span class="settings-toggle__slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section settings-section--danger">
+                        <h2 class="settings-section__title">Опасная зона</h2>
+                        
+                        <div class="settings-item">
+                            <div class="settings-item__info">
+                                <h3 class="settings-item__title">Удалить аккаунт</h3>
+                                <p class="settings-item__description">Безвозвратное удаление аккаунта и всех данных</p>
+                            </div>
+                            <button class="settings-item__btn settings-item__btn--danger">Удалить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <!-- Колонка 1: Контакты -->
+                <div class="footer__column">
+                    <div class="footer__logo">
+                        <img src="/img/logo/logo-black.png" alt="VLOGE" class="footer__logo-img">
+                    </div>
+                    <div class="footer__contacts">
+                        <a href="tel:" class="footer__phone">+7 (700) 700-70-70</a>
+                        <a href="mailto:" class="footer__email">vloge@gmail.com</a>
+                        <p class="footer__address">Алматы, Толе би/Розыбакиева 14/35</p>
+                    </div>
+                    <div class="footer__social">
+                        <a href="#" class="social-link" aria-label="ВКонтакте">
+                            ВК
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram">
+                            ТГ
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Колонка 2: Курсы -->
+                <div class="footer__column">
+                    <h4 class="footer__title">Категории</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Программирование</a></li>
+                        <li><a href="#">Маркетинг</a></li>
+                        <li><a href="#">Дизайн</a></li>
+                        <li><a href="#">Аналитика</a></li>
+                        <li><a href="#">Менеджмент</a></li>
+                        <li><a href="#">Нейросети</a></li>
+                        <li><a href="#">Игры</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 3: Ученикам -->
+                <div class="footer__column">
+                    <h4 class="footer__title">О нас</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Наша миссия</a></li>
+                        <li><a href="#">Наша команда</a></li>
+                        <li><a href="#">Отзывы</a></li>
+                        <li><a href="#">Партнёры</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 4: Документы + Интересное -->
+                <div class="footer__column">
+                    <h4 class="footer__title">Документы</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Юридическая информация</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Нижняя часть футера -->
+            <div class="footer__bottom">
+                <div class="footer__divider"></div>
+                <div class="footer__info">
+                    <p class="footer__copyright">© VLOGE 2026</p>
+                    <p class="footer__description">
+                        Мы делимся знаниями, идеями и опытом так, чтобы каждый материал был понятным, интересным и действительно полезным. Наша цель — не просто писать статьи, а помогать читателям узнавать новое, расти и находить ответы на важные для них вопросы.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/profile.js"></script>
+</body>
+</html>

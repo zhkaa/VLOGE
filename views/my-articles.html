@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои статьи - VLOGE</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="/" class="logo">
+                    <img src="/img/logo/logo.png" alt="VLOGE" class="logo__img">
+                </a>
+                
+                <div class="burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="nav" id="nav">
+                    <a href="/" class="nav__link">Все</a>
+                    <a href="#" class="nav__link">Полезные ссылки</a>
+                    <a href="#" class="nav__link">Ресурсы</a>
+                    <a href="#" class="nav__link">О нас</a>
+                </nav>
+
+                <div class="user-profile active" id="userProfile">
+                    <button class="user-profile__btn" id="profileBtn">
+                        <div class="user-profile__avatar" id="userAvatar">ИИ</div>
+                        <span class="user-profile__name" id="userName">Иван Иванов</span>
+                        <div class="user-profile__arrow"></div>
+                    </button>
+
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown__header">
+                            <div class="user-dropdown__header-name" id="dropdownName">Иван Иванов</div>
+                            <div class="user-dropdown__header-email" id="dropdownEmail">admin@gmail.com</div>
+                        </div>
+
+                        <div class="user-dropdown__menu">
+                            <a href="/profile" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">👤</span>
+                                <span>Мой профиль</span>
+                            </a>
+                            <a href="/my-articles" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">📝</span>
+                                <span>Мои статьи</span>
+                            </a>
+                            <a href="/bookmarks" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">🔖</span>
+                                <span>Закладки</span>
+                            </a>
+                            <a href="/settings" class="user-dropdown__item">
+                                <span class="user-dropdown__item-icon">⚙️</span>
+                                <span>Настройки</span>
+                            </a>
+                        </div>
+
+                        <div class="user-dropdown__divider"></div>
+
+                        <div class="user-dropdown__menu">
+                            <a href="#" class="user-dropdown__item user-dropdown__logout" id="logoutBtn">
+                                <span class="user-dropdown__item-icon">🚪</span>
+                                <span>Выйти</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-page">
+        <div class="container">
+            <div class="profile-layout">
+                <!-- Боковое меню -->
+                <aside class="profile-sidebar">
+                    <nav class="profile-nav">
+                        <a href="/profile" class="profile-nav__item">
+                            <span class="profile-nav__icon">👤</span>
+                            <span>Личные данные</span>
+                        </a>
+                        <a href="/my-articles" class="profile-nav__item active">
+                            <span class="profile-nav__icon">📝</span>
+                            <span>Мои статьи</span>
+                        </a>
+                        <a href="/bookmarks" class="profile-nav__item">
+                            <span class="profile-nav__icon">🔖</span>
+                            <span>Закладки</span>
+                        </a>
+                        <a href="/settings" class="profile-nav__item">
+                            <span class="profile-nav__icon">⚙️</span>
+                            <span>Настройки</span>
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Основной контент -->
+                <div class="profile-content">
+                    <div class="profile-header">
+                        <h1 class="profile-title">Мои статьи</h1>
+                        <button class="btn-primary">
+                            <span>➕</span> Создать статью
+                        </button>
+                    </div>
+
+                    <!-- Фильтры -->
+                    <div class="articles-filters">
+                        <button class="filter-btn active" data-filter="all">Все (12)</button>
+                        <button class="filter-btn" data-filter="published">Опубликованные (10)</button>
+                        <button class="filter-btn" data-filter="draft">Черновики (2)</button>
+                    </div>
+
+                    <!-- Список статей -->
+                    <div class="my-articles-list">
+                        <!-- Статья 1 -->
+                        <div class="my-article-card" data-status="published">
+                            <div class="my-article-card__image">
+                                <img src="https://via.placeholder.com/300x200/00D856/ffffff?text=Статья+1" alt="Статья 1">
+                                <span class="my-article-card__status published">Опубликовано</span>
+                            </div>
+                            <div class="my-article-card__content">
+                                <span class="my-article-card__category">Программирование</span>
+                                <h3 class="my-article-card__title">Как начать карьеру в IT с нуля</h3>
+                                <p class="my-article-card__excerpt">Подробное руководство для тех, кто хочет войти в мир технологий и не знает с чего начать.</p>
+                                <div class="my-article-card__meta">
+                                    <span>📅 20 февраля 2026</span>
+                                    <span>👁️ 345</span>
+                                    <span>❤️ 23</span>
+                                </div>
+                                <div class="my-article-card__actions">
+                                    <button class="btn-icon" title="Редактировать">✏️</button>
+                                    <button class="btn-icon" title="Статистика">📊</button>
+                                    <button class="btn-icon" title="Поделиться">🔗</button>
+                                    <button class="btn-icon danger" title="Удалить">🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Статья 2 (черновик) -->
+                        <div class="my-article-card" data-status="draft">
+                            <div class="my-article-card__image">
+                                <img src="https://via.placeholder.com/300x200/FFC107/ffffff?text=Черновик" alt="Черновик">
+                                <span class="my-article-card__status draft">Черновик</span>
+                            </div>
+                            <div class="my-article-card__content">
+                                <span class="my-article-card__category">Дизайн</span>
+                                <h3 class="my-article-card__title">Основы UI/UX дизайна</h3>
+                                <p class="my-article-card__excerpt">Разбираем ключевые принципы создания удобных и красивых интерфейсов.</p>
+                                <div class="my-article-card__meta">
+                                    <span>📅 Сохранено 19 февраля 2026</span>
+                                </div>
+                                <div class="my-article-card__actions">
+                                    <button class="btn-icon" title="Редактировать">✏️</button>
+                                    <button class="btn-icon" title="Опубликовать">🚀</button>
+                                    <button class="btn-icon danger" title="Удалить">🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Статья 3 -->
+                        <div class="my-article-card" data-status="published">
+                            <div class="my-article-card__image">
+                                <img src="https://via.placeholder.com/300x200/00D856/ffffff?text=Статья+3" alt="Статья 3">
+                                <span class="my-article-card__status published">Опубликовано</span>
+                            </div>
+                            <div class="my-article-card__content">
+                                <span class="my-article-card__category">Маркетинг</span>
+                                <h3 class="my-article-card__title">SMM в 2026: тренды и стратегии</h3>
+                                <p class="my-article-card__excerpt">Какие платформы актуальны сейчас и как выстроить эффективную стратегию продвижения.</p>
+                                <div class="my-article-card__meta">
+                                    <span>📅 18 февраля 2026</span>
+                                    <span>👁️ 567</span>
+                                    <span>❤️ 45</span>
+                                </div>
+                                <div class="my-article-card__actions">
+                                    <button class="btn-icon" title="Редактировать">✏️</button>
+                                    <button class="btn-icon" title="Статистика">📊</button>
+                                    <button class="btn-icon" title="Поделиться">🔗</button>
+                                    <button class="btn-icon danger" title="Удалить">🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <!-- Колонка 1: Контакты -->
+                <div class="footer__column">
+                    <div class="footer__logo">
+                        <img src="/img/logo/logo-black.png" alt="VLOGE" class="footer__logo-img">
+                    </div>
+                    <div class="footer__contacts">
+                        <a href="tel:" class="footer__phone">+7 (700) 700-70-70</a>
+                        <a href="mailto:" class="footer__email">vloge@gmail.com</a>
+                        <p class="footer__address">Алматы, Толе би/Розыбакиева 14/35</p>
+                    </div>
+                    <div class="footer__social">
+                        <a href="#" class="social-link" aria-label="ВКонтакте">
+                            ВК
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram">
+                            ТГ
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Колонка 2: Курсы -->
+                <div class="footer__column">
+                    <h4 class="footer__title">Категории</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Программирование</a></li>
+                        <li><a href="#">Маркетинг</a></li>
+                        <li><a href="#">Дизайн</a></li>
+                        <li><a href="#">Аналитика</a></li>
+                        <li><a href="#">Менеджмент</a></li>
+                        <li><a href="#">Нейросети</a></li>
+                        <li><a href="#">Игры</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 3: Ученикам -->
+                <div class="footer__column">
+                    <h4 class="footer__title">О нас</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Наша миссия</a></li>
+                        <li><a href="#">Наша команда</a></li>
+                        <li><a href="#">Отзывы</a></li>
+                        <li><a href="#">Партнёры</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 4: Документы + Интересное -->
+                <div class="footer__column">
+                    <h4 class="footer__title">Документы</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Юридическая информация</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Нижняя часть футера -->
+            <div class="footer__bottom">
+                <div class="footer__divider"></div>
+                <div class="footer__info">
+                    <p class="footer__copyright">© VLOGE 2026</p>
+                    <p class="footer__description">
+                        Мы делимся знаниями, идеями и опытом так, чтобы каждый материал был понятным, интересным и действительно полезным. Наша цель — не просто писать статьи, а помогать читателям узнавать новое, расти и находить ответы на важные для них вопросы.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/profile.js"></script>
+    <script src="/js/my-articles.js"></script>
+</body>
+</html>

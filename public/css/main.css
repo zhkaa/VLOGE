@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+@import 'reset.css';
+@import 'header.css';
+@import 'footer.css';
+@import 'home.css';
+@import 'auth.css';
+@import 'article.css';
+@import 'profile-layout.css';
+@import 'bookmarks.css';
+@import 'my-articles.css';
+@import 'profile-form.css';
+@import 'settings.css';
+
+:root {
+    --primary: #00D856;
+    --primary-hover: #00C04D;
+    --dark: #1A1A1A;
+    --gray: #666666;
+    --light-gray: #F5F5F5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark);
+    line-height: 1.6;
+    background: #fff;
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px;
+}

@@ -1,0 +1,119 @@
+/* ===== НАСТРОЙКИ ===== */
+.settings-section {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.settings-section--danger {
+    border: 2px solid #fee;
+}
+
+.settings-section__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.settings-item:last-child {
+    border-bottom: none;
+}
+
+.settings-item__info {
+    flex: 1;
+}
+
+.settings-item__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 4px;
+}
+
+.settings-item__description {
+    font-size: 14px;
+    color: #718096;
+}
+
+.settings-item__btn {
+    padding: 10px 24px;
+    background: #f0f4f8;
+    border: none;
+    border-radius: 8px;
+    color: #4a5568;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.settings-item__btn:hover {
+    background: #e2e8f0;
+}
+
+.settings-item__btn--danger {
+    background: #fee;
+    color: #e53e3e;
+}
+
+.settings-item__btn--danger:hover {
+    background: #fcc;
+}
+
+/* Тоггл переключатель */
+.settings-toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.settings-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.settings-toggle__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e0;
+    transition: 0.3s;
+    border-radius: 26px;
+}
+
+.settings-toggle__slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.settings-toggle input:checked + .settings-toggle__slider {
+    background-color: #00D856;
+}
+
+.settings-toggle input:checked + .settings-toggle__slider:before {
+    transform: translateX(24px);
+}

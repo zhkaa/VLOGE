@@ -1,0 +1,145 @@
+/* ===== ПРОФИЛЬНАЯ СТРАНИЦА - ОБЩИЙ LAYOUT ===== */
+.profile-page {
+    padding: 40px 0 80px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f5 100%);
+    min-height: calc(100vh - 200px);
+}
+
+.profile-layout {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== БОКОВОЕ МЕНЮ ===== */
+.profile-sidebar {
+    flex: 0 0 250px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.profile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profile-nav__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    color: #4a5568;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.profile-nav__item:hover {
+    background: #f7fafc;
+    color: #00D856;
+}
+
+.profile-nav__item.active {
+    background: linear-gradient(135deg, #00D856 0%, #00b847 100%);
+    color: white;
+}
+
+.profile-nav__item.active:hover {
+    background: linear-gradient(135deg, #00b847 0%, #009938 100%);
+}
+
+.profile-nav__icon {
+    font-size: 20px;
+}
+
+/* ===== КОНТЕНТ ===== */
+.profile-content {
+    flex: 1;
+}
+
+.profile-header {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.profile-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 8px;
+}
+
+.profile-subtitle {
+    font-size: 16px;
+    color: #718096;
+}
+
+/* ===== АДАПТИВНОСТЬ LAYOUT ===== */
+@media (max-width: 968px) {
+    .profile-layout {
+        flex-direction: column;
+    }
+
+    .profile-sidebar {
+        flex: none;
+        position: static;
+    }
+
+    .profile-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 8px;
+    }
+
+    .profile-nav__item {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    .profile-nav__icon {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-nav__item span:last-child {
+        display: none;
+    }
+
+    .profile-nav__item {
+        padding: 10px 12px;
+        justify-content: center;
+    }
+
+    .profile-nav__icon {
+        font-size: 20px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-page {
+        padding: 20px 0 40px;
+    }
+    
+    .profile-header {
+        padding: 20px;
+    }
+    
+    .profile-title {
+        font-size: 24px;
+    }
+}
