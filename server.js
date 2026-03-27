@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const Database = require('better-sqlite3');
 
 const app = express();
-const db = new Database('blog.db');
+const db = new Database(path.join(__dirname, 'blog.db'));
 
 // ─── СОЗДАНИЕ ТАБЛИЦ ─────────────────────────────────────────────────────────
 db.exec(`
