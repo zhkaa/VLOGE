@@ -22,9 +22,9 @@
 
                 <nav class="nav" id="nav">
                     <a href="/" class="nav__link">Все</a>
-                    <a href="#" class="nav__link">Полезные ссылки</a>
-                    <a href="#" class="nav__link">Ресурсы</a>
-                    <a href="#" class="nav__link">О нас</a>
+                    <a href="/useful-links" class="nav__link">Полезные ссылки</a>
+                    <a href="/resources" class="nav__link">Ресурсы</a>
+                    <a href="/about" class="nav__link">О нас</a>
                 </nav>
 
                 <div class="user-profile active" id="userProfile">
@@ -269,7 +269,104 @@
         </div>
     </footer>
 
+    <script src="/js/api.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/profile.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        requireAuth();
+
+        // Загрузить данные профиля
+        const { user } = await API.get('/api/me');
+        if (!user) return;
+
+        // Разбить name на имя и фамилию
+        const parts = (user.name || '').split(' ');
+        document.getElementById('firstName').value = parts[0] || '';
+        document.getElementById('lastName').value = parts.slice(1).join(' ') || '';
+        document.getElementById('email').value = user.email || '';
+        document.getElementById('bio').value = user.bio || '';
+        document.getElementById('phone').value = user.phone || '';
+        document.getElementById('website').value = user.website || '';
+
+        // Аватар
+        const avatarEl = document.getElementById('profileAvatarLarge');
+        if (user.avatar) {
+            avatarEl.innerHTML = `<img src="${user.avatar}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+        } else {
+            const initials = (parts[0]?.[0] || '') + (parts[1]?.[0] || '');
+            avatarEl.textContent = initials.toUpperCase() || 'U';
+        }
+
+        // Загрузить статистику
+        const { stats } = await API.get('/api/me/stats');
+        if (stats) {
+            document.querySelectorAll('.stat-box')[0].querySelector('.stat-box__value').textContent = stats.articles;
+            document.querySelectorAll('.stat-box')[1].querySelector('.stat-box__value').textContent = stats.views.toLocaleString('ru-RU');
+            document.querySelectorAll('.stat-box')[2].querySelector('.stat-box__value').textContent = stats.likes.toLocaleString('ru-RU');
+            document.querySelectorAll('.stat-box')[3].querySelector('.stat-box__value').textContent = stats.bookmarks;
+        }
+
+        // Сохранить профиль
+        document.getElementById('profileForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const name = [firstName, lastName].filter(Boolean).join(' ');
+            const bio = document.getElementById('bio').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const website = document.getElementById('website').value.trim();
+            const avatar = user.avatar || null;
+
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Сохранение...';
+
+            const data = await API.put('/api/me', { name, bio, avatar, phone, website });
+            if (data.success) {
+                localStorage.setItem('userData', JSON.stringify(data.user));
+                showToast('Профиль обновлён!');
+            } else {
+                showToast('Ошибка сохранения', 'error');
+            }
+            btn.disabled = false;
+            btn.textContent = 'Сохранить изменения';
+        });
+
+        // Загрузка аватара
+        document.querySelector('.btn-secondary').addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                if (file.size > 2 * 1024 * 1024) { showToast('Файл слишком большой (макс 2МБ)', 'error'); return; }
+                const reader = new FileReader();
+                reader.onload = async (ev) => {
+                    const avatar = ev.target.result;
+                    avatarEl.innerHTML = `<img src="${avatar}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+                    user.avatar = avatar;
+                    // Сразу сохраняем аватар
+                    await API.put('/api/me', { name: user.name, bio: user.bio || '', avatar, phone: user.phone || '', website: user.website || '' });
+                    showToast('Аватар обновлён!');
+                };
+                reader.readAsDataURL(file);
+            };
+            input.click();
+        });
+
+        // Удалить аватар
+        document.querySelector('.btn-text').addEventListener('click', async () => {
+            user.avatar = null;
+            const parts2 = (user.name || '').split(' ');
+            const initials = (parts2[0]?.[0] || '') + (parts2[1]?.[0] || '');
+            avatarEl.textContent = initials.toUpperCase() || 'U';
+            avatarEl.style.background = '';
+            await API.put('/api/me', { name: user.name, bio: user.bio || '', avatar: null, phone: user.phone || '', website: user.website || '' });
+            showToast('Аватар удалён');
+        });
+    });
+    </script>
 </body>
 </html>

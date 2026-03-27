@@ -23,9 +23,9 @@
 
                 <nav class="nav" id="nav">
                     <a href="/" class="nav__link">Все</a>
-                    <a href="#" class="nav__link">Полезные ссылки</a>
-                    <a href="#" class="nav__link">Ресурсы</a>
-                    <a href="#" class="nav__link">О нас</a>
+                    <a href="/useful-links" class="nav__link">Полезные ссылки</a>
+                    <a href="/resources" class="nav__link">Ресурсы</a>
+                    <a href="/about" class="nav__link">О нас</a>
 
                     <!-- Кнопки для мобильной версии -->
                     <div class="nav__buttons" id="navButtons">
@@ -99,102 +99,8 @@
             </section>
 
             <!-- Сетка статей -->
-            <section class="blog-grid">
-                <!-- Статья 1 -->
-                <article class="blog-card">
-                    <div class="blog-card__image">
-                        <img src="/img/blog/article-1.jpg" alt="Статья 1">
-                    </div>
-                    <div class="blog-card__content">
-                        <span class="blog-card__category">Программирование</span>
-                        <h3 class="blog-card__title">Как начать карьеру в IT с нуля</h3>
-                        <p class="blog-card__excerpt">Подробное руководство для тех, кто хочет войти в мир технологий и не знает с чего начать.</p>
-                        <div class="blog-card__meta">
-                            <span class="blog-card__date">20 февраля 2026</span>
-                            <span class="blog-card__read-time">5 мин</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Статья 2 -->
-                <article class="blog-card">
-                    <div class="blog-card__image">
-                        <img src="/img/blog/article-2.jpg" alt="Статья 2">
-                    </div>
-                    <div class="blog-card__content">
-                        <span class="blog-card__category">Маркетинг</span>
-                        <h3 class="blog-card__title">SMM в 2026: тренды и стратегии</h3>
-                        <p class="blog-card__excerpt">Какие платформы актуальны сейчас и как выстроить эффективную стратегию продвижения в соцсетях.</p>
-                        <div class="blog-card__meta">
-                            <span class="blog-card__date">18 февраля 2026</span>
-                            <span class="blog-card__read-time">7 мин</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Статья 3 -->
-                <article class="blog-card">
-                    <div class="blog-card__image">
-                        <img src="/img/blog/article-3.jpg" alt="Статья 3">
-                    </div>
-                    <div class="blog-card__content">
-                        <span class="blog-card__category">Дизайн</span>
-                        <h3 class="blog-card__title">Основы UI/UX дизайна для начинающих</h3>
-                        <p class="blog-card__excerpt">Разбираем ключевые принципы создания удобных и красивых интерфейсов.</p>
-                        <div class="blog-card__meta">
-                            <span class="blog-card__date">15 февраля 2026</span>
-                            <span class="blog-card__read-time">6 мин</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Статья 4 -->
-                <article class="blog-card">
-                    <div class="blog-card__image">
-                        <img src="/img/blog/article-4.jpg" alt="Статья 4">
-                    </div>
-                    <div class="blog-card__content">
-                        <span class="blog-card__category">Нейросети</span>
-                        <h3 class="blog-card__title">ChatGPT и другие AI-инструменты для работы</h3>
-                        <p class="blog-card__excerpt">Как эффективно использовать искусственный интеллект в повседневных задачах.</p>
-                        <div class="blog-card__meta">
-                            <span class="blog-card__date">12 февраля 2026</span>
-                            <span class="blog-card__read-time">8 мин</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Статья 5 -->
-                <article class="blog-card">
-                    <div class="blog-card__image">
-                        <img src="/img/blog/article-5.jpg" alt="Статья 5">
-                    </div>
-                    <div class="blog-card__content">
-                        <span class="blog-card__category">Аналитика</span>
-                        <h3 class="blog-card__title">Google Analytics 4: полное руководство</h3>
-                        <p class="blog-card__excerpt">Настройка, отслеживание событий и анализ данных в новой версии GA4.</p>
-                        <div class="blog-card__meta">
-                            <span class="blog-card__date">10 февраля 2026</span>
-                            <span class="blog-card__read-time">10 мин</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Статья 6 -->
-                <article class="blog-card">
-                    <div class="blog-card__image">
-                        <img src="/img/blog/article-6.jpg" alt="Статья 6">
-                    </div>
-                    <div class="blog-card__content">
-                        <span class="blog-card__category">Менеджмент</span>
-                        <h3 class="blog-card__title">Agile и Scrum: управление проектами</h3>
-                        <p class="blog-card__excerpt">Гибкие методологии разработки и как их применять в работе команды.</p>
-                        <div class="blog-card__meta">
-                            <span class="blog-card__date">8 февраля 2026</span>
-                            <span class="blog-card__read-time">9 мин</span>
-                        </div>
-                    </div>
-                </article>
+            <section class="blog-grid" id="blogGrid">
+                <p style="color:#a0aec0;padding:20px;grid-column:1/-1">Загрузка статей...</p>
             </section>
         </div>
     </main>
@@ -271,7 +177,35 @@
         </div>
     </footer>
 
+    <script src="/js/api.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/profile.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const grid = document.getElementById('blogGrid');
+        const data = await API.get('/api/articles');
+        if (!data.success || data.articles.length === 0) {
+            grid.innerHTML = '<p style="text-align:center;color:#a0aec0;padding:60px;grid-column:1/-1">Статей пока нет. <a href="/create-article" style="color:#00D856">Напишите первую!</a></p>';
+            return;
+        }
+        grid.innerHTML = data.articles.map(a => `
+            <article class="blog-card" onclick="location.href='/article/${a.id}'" style="cursor:pointer">
+                <div class="blog-card__image">
+                    <img src="${a.cover_image || 'https://via.placeholder.com/400x250/e2e8f0/a0aec0?text=Статья'}" alt="${a.title}">
+                </div>
+                <div class="blog-card__content">
+                    ${a.category ? `<span class="blog-card__category">${a.category}</span>` : ''}
+                    <h3 class="blog-card__title">${a.title}</h3>
+                    ${a.excerpt ? `<p class="blog-card__excerpt">${a.excerpt}</p>` : ''}
+                    <div class="blog-card__meta">
+                        <span class="blog-card__date">${new Date(a.created_at).toLocaleDateString('ru-RU', {day:'numeric',month:'long',year:'numeric'})}</span>
+                        <span class="blog-card__author">${a.author_name}</span>
+                        <span>👁️ ${a.views}</span>
+                    </div>
+                </div>
+            </article>
+        `).join('');
+    });
+    </script>
 </body>
 </html>

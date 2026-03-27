@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полезные ссылки - VLOGE</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/static-pages.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="/" class="logo"><img src="/img/logo/logo.png" alt="VLOGE" class="logo__img"></a>
+                <div class="burger" id="burger"><span></span><span></span><span></span></div>
+                <nav class="nav" id="nav">
+                    <a href="/" class="nav__link">Все</a>
+                    <a href="/useful-links" class="nav__link nav__link--active">Полезные ссылки</a>
+                    <a href="/resources" class="nav__link">Ресурсы</a>
+                    <a href="/about" class="nav__link">О нас</a>
+                    <div class="nav__buttons" id="navButtons">
+                        <a href="/login" class="btn-login">Войти</a>
+                        <a href="/register" class="btn-register">Регистрация</a>
+                    </div>
+                </nav>
+                <div class="header__actions" id="headerActions">
+                    <a href="/login" class="btn-login">Войти</a>
+                    <a href="/register" class="btn-register">Регистрация</a>
+                </div>
+                <div class="user-profile" id="userProfile">
+                    <button class="user-profile__btn" id="profileBtn">
+                        <div class="user-profile__avatar" id="userAvatar"></div>
+                        <span class="user-profile__name" id="userName">Загрузка...</span>
+                        <div class="user-profile__arrow"></div>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown__header">
+                            <div class="user-dropdown__header-name" id="dropdownName">Имя пользователя</div>
+                            <div class="user-dropdown__header-email" id="dropdownEmail">email@example.com</div>
+                        </div>
+                        <div class="user-dropdown__menu">
+                            <a href="/profile" class="user-dropdown__item"><span class="user-dropdown__item-icon">👤</span><span>Мой профиль</span></a>
+                            <a href="/my-articles" class="user-dropdown__item"><span class="user-dropdown__item-icon">📝</span><span>Мои статьи</span></a>
+                            <a href="/bookmarks" class="user-dropdown__item"><span class="user-dropdown__item-icon">🔖</span><span>Закладки</span></a>
+                            <a href="/settings" class="user-dropdown__item"><span class="user-dropdown__item-icon">⚙️</span><span>Настройки</span></a>
+                        </div>
+                        <div class="user-dropdown__divider"></div>
+                        <div class="user-dropdown__menu">
+                            <a href="#" class="user-dropdown__item user-dropdown__logout" id="logoutBtn"><span class="user-dropdown__item-icon">🚪</span><span>Выйти</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="static-hero">
+            <div class="container">
+                <span class="static-hero__label">Полезные ссылки</span>
+                <h1 class="static-hero__title">Лучшее из интернета</h1>
+                <p class="static-hero__subtitle">Собрали самые полезные ресурсы для обучения, работы и профессионального роста</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div style="text-align:center">
+                <div class="links-search">
+                    <input type="text" class="links-search__input" placeholder="🔍  Поиск по ссылкам..." id="linksSearch">
+                </div>
+            </div>
+
+            <div class="links-categories">
+                <button class="links-category-btn active" data-filter="all">Все</button>
+                <button class="links-category-btn" data-filter="dev">Разработка</button>
+                <button class="links-category-btn" data-filter="design">Дизайн</button>
+                <button class="links-category-btn" data-filter="marketing">Маркетинг</button>
+                <button class="links-category-btn" data-filter="ai">Нейросети</button>
+                <button class="links-category-btn" data-filter="productivity">Продуктивность</button>
+                <button class="links-category-btn" data-filter="learn">Обучение</button>
+            </div>
+
+            <section class="links-section" data-section="dev">
+                <h2 class="links-section__title">💻 Разработка</h2>
+                <div class="links-grid">
+                    <a href="https://developer.mozilla.org" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">📚</span><span class="link-card__name">MDN Web Docs</span></div>
+                        <p class="link-card__desc">Лучшая документация по HTML, CSS и JavaScript. Настольная книга любого веб-разработчика.</p>
+                        <span class="link-card__tag">Бесплатно</span>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🐙</span><span class="link-card__name">GitHub</span></div>
+                        <p class="link-card__desc">Платформа для хранения кода, совместной разработки и open-source проектов.</p>
+                        <span class="link-card__tag">Бесплатно</span>
+                    </a>
+                    <a href="https://stackoverflow.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🧩</span><span class="link-card__name">Stack Overflow</span></div>
+                        <p class="link-card__desc">Сообщество разработчиков. Здесь найдёшь ответ на любой технический вопрос.</p>
+                        <span class="link-card__tag">Бесплатно</span>
+                    </a>
+                    <a href="https://roadmap.sh" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🗺️</span><span class="link-card__name">Roadmap.sh</span></div>
+                        <p class="link-card__desc">Дорожные карты для разработчиков — Frontend, Backend, DevOps и многое другое.</p>
+                        <span class="link-card__tag">Бесплатно</span>
+                    </a>
+                    <a href="https://css-tricks.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🎨</span><span class="link-card__name">CSS-Tricks</span></div>
+                        <p class="link-card__desc">Статьи, туториалы и гайды по CSS, HTML и фронтенд-разработке.</p>
+                        <span class="link-card__tag">Бесплатно</span>
+                    </a>
+                    <a href="https://devdocs.io" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">📖</span><span class="link-card__name">DevDocs</span></div>
+                        <p class="link-card__desc">Вся документация по популярным технологиям в одном месте. Работает офлайн.</p>
+                        <span class="link-card__tag">Бесплатно</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="links-section" data-section="design">
+                <h2 class="links-section__title">🎨 Дизайн</h2>
+                <div class="links-grid">
+                    <a href="https://figma.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🖌️</span><span class="link-card__name">Figma</span></div>
+                        <p class="link-card__desc">Лучший инструмент для UI/UX дизайна. Бесплатен для небольших проектов.</p>
+                        <span class="link-card__tag">Freemium</span>
+                    </a>
+                    <a href="https://dribbble.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🏀</span><span class="link-card__name">Dribbble</span></div>
+                        <p class="link-card__desc">Галерея работ лучших дизайнеров мира. Вдохновение и референсы для проектов.</p>
+                        <span class="link-card__tag">Бесплатно</span>
+                    </a>
+                    <a href="https://unsplash.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">📷</span><span class="link-card__name">Unsplash</span></div>
+                        <p class="link-card__desc">Бесплатные фотографии высокого качества для личного и коммерческого использования.</p>
+                        <span class="link-card__tag">Бесплатно</span>
+                    </a>
+                    <a href="https://coolors.co" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🎭</span><span class="link-card__name">Coolors</span></div>
+                        <p class="link-card__desc">Генератор цветовых палитр. Быстро создаёт гармоничные сочетания цветов.</p>
+                        <span class="link-card__tag">Бесплатно</span>
+                    </a>
+                    <a href="https://fonts.google.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🔤</span><span class="link-card__name">Google Fonts</span></div>
+                        <p class="link-card__desc">Более 1400 бесплатных шрифтов для веба. Просто подключи и используй.</p>
+                        <span class="link-card__tag">Бесплатно</span>
+                    </a>
+                    <a href="https://fontawesome.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">⭐</span><span class="link-card__name">Font Awesome</span></div>
+                        <p class="link-card__desc">Огромная библиотека иконок для веб-проектов. Есть бесплатная версия.</p>
+                        <span class="link-card__tag">Freemium</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="links-section" data-section="marketing">
+                <h2 class="links-section__title">📈 Маркетинг</h2>
+                <div class="links-grid">
+                    <a href="https://analytics.google.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">📊</span><span class="link-card__name">Google Analytics</span></div>
+                        <p class="link-card__desc">Лучший инструмент для анализа трафика сайта. Необходим каждому владельцу сайта.</p>
+                        <span class="link-card__tag">Бесплатно</span>
+                    </a>
+                    <a href="https://semrush.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🔍</span><span class="link-card__name">SEMrush</span></div>
+                        <p class="link-card__desc">Мощный инструмент для SEO, анализа конкурентов и контент-маркетинга.</p>
+                        <span class="link-card__tag">Платно</span>
+                    </a>
+                    <a href="https://mailchimp.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">📧</span><span class="link-card__name">Mailchimp</span></div>
+                        <p class="link-card__desc">Платформа для email-маркетинга. Бесплатно до 500 подписчиков.</p>
+                        <span class="link-card__tag">Freemium</span>
+                    </a>
+                    <a href="https://canva.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🖼️</span><span class="link-card__name">Canva</span></div>
+                        <p class="link-card__desc">Создание визуалов для соцсетей и маркетинговых материалов без навыков дизайна.</p>
+                        <span class="link-card__tag">Freemium</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="links-section" data-section="ai">
+                <h2 class="links-section__title">🤖 Нейросети и AI</h2>
+                <div class="links-grid">
+                    <a href="https://chat.openai.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">💬</span><span class="link-card__name">ChatGPT</span></div>
+                        <p class="link-card__desc">Самый популярный AI-ассистент. Помогает с текстами, кодом, анализом и многим другим.</p>
+                        <span class="link-card__tag">Freemium</span>
+                    </a>
+                    <a href="https://claude.ai" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🧠</span><span class="link-card__name">Claude</span></div>
+                        <p class="link-card__desc">AI от Anthropic — отличается вдумчивыми и развёрнутыми ответами, хорош для анализа.</p>
+                        <span class="link-card__tag">Freemium</span>
+                    </a>
+                    <a href="https://midjourney.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🎨</span><span class="link-card__name">Midjourney</span></div>
+                        <p class="link-card__desc">Генерация изображений по текстовому описанию. Создаёт невероятно красивые картинки.</p>
+                        <span class="link-card__tag">Платно</span>
+                    </a>
+                    <a href="https://gamma.app" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">✨</span><span class="link-card__name">Gamma</span></div>
+                        <p class="link-card__desc">AI создаёт красивые презентации и документы за секунды по вашему описанию.</p>
+                        <span class="link-card__tag">Freemium</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="links-section" data-section="productivity">
+                <h2 class="links-section__title">⚡ Продуктивность</h2>
+                <div class="links-grid">
+                    <a href="https://notion.so" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">📝</span><span class="link-card__name">Notion</span></div>
+                        <p class="link-card__desc">Универсальное рабочее пространство для заметок, проектов, баз данных и вики.</p>
+                        <span class="link-card__tag">Freemium</span>
+                    </a>
+                    <a href="https://trello.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">📋</span><span class="link-card__name">Trello</span></div>
+                        <p class="link-card__desc">Kanban-доски для управления проектами и задачами. Простой и интуитивный интерфейс.</p>
+                        <span class="link-card__tag">Freemium</span>
+                    </a>
+                    <a href="https://loom.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🎥</span><span class="link-card__name">Loom</span></div>
+                        <p class="link-card__desc">Быстрая запись и отправка видеосообщений. Заменяет длинные переписки.</p>
+                        <span class="link-card__tag">Freemium</span>
+                    </a>
+                    <a href="https://www.toggl.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">⏱️</span><span class="link-card__name">Toggl</span></div>
+                        <p class="link-card__desc">Трекинг времени для фрилансеров и команд. Простой таймер и детальная отчётность.</p>
+                        <span class="link-card__tag">Freemium</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="links-section" data-section="learn">
+                <h2 class="links-section__title">🎓 Обучение</h2>
+                <div class="links-grid">
+                    <a href="https://coursera.org" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🎓</span><span class="link-card__name">Coursera</span></div>
+                        <p class="link-card__desc">Курсы от ведущих университетов мира. Есть сертификаты от Google, Meta, IBM.</p>
+                        <span class="link-card__tag">Freemium</span>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">▶️</span><span class="link-card__name">YouTube</span></div>
+                        <p class="link-card__desc">Миллионы бесплатных обучающих видео по любой теме. Лучший источник для самообучения.</p>
+                        <span class="link-card__tag">Бесплатно</span>
+                    </a>
+                    <a href="https://habr.com" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">🔧</span><span class="link-card__name">Habr</span></div>
+                        <p class="link-card__desc">Крупнейшее IT-сообщество в СНГ. Технические статьи, новости и разборы от практиков.</p>
+                        <span class="link-card__tag">Бесплатно</span>
+                    </a>
+                    <a href="https://stepik.org" target="_blank" class="link-card">
+                        <div class="link-card__header"><span class="link-card__icon">📐</span><span class="link-card__name">Stepik</span></div>
+                        <p class="link-card__desc">Русскоязычная платформа с курсами по программированию, математике и науке.</p>
+                        <span class="link-card__tag">Freemium</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__column">
+                    <div class="footer__logo"><img src="/img/logo/logo-black.png" alt="VLOGE" class="footer__logo-img"></div>
+                    <div class="footer__contacts">
+                        <a href="tel:" class="footer__phone">+7 (700) 700-70-70</a>
+                        <a href="mailto:" class="footer__email">vloge@gmail.com</a>
+                        <p class="footer__address">Алматы, Толе би/Розыбакиева 14/35</p>
+                    </div>
+                    <div class="footer__social"><a href="#" class="social-link">ВК</a><a href="#" class="social-link">ТГ</a></div>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Категории</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Программирование</a></li><li><a href="#">Маркетинг</a></li>
+                        <li><a href="#">Дизайн</a></li><li><a href="#">Аналитика</a></li>
+                        <li><a href="#">Менеджмент</a></li><li><a href="#">Нейросети</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">О нас</h4>
+                    <ul class="footer__links">
+                        <li><a href="/about">О компании</a></li>
+                        <li><a href="/useful-links">Полезные ссылки</a></li>
+                        <li><a href="/resources">Ресурсы</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Документы</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Юридическая информация</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__divider"></div>
+                <div class="footer__info">
+                    <p class="footer__copyright">© VLOGE 2026</p>
+                    <p class="footer__description">Мы делимся знаниями, идеями и опытом так, чтобы каждый материал был понятным, интересным и действительно полезным.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/profile.js"></script>
+    <script>
+        const categoryBtns = document.querySelectorAll('.links-category-btn');
+        const sections = document.querySelectorAll('.links-section');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                sections.forEach(s => {
+                    s.style.display = (filter === 'all' || s.dataset.section === filter) ? 'block' : 'none';
+                });
+            });
+        });
+
+        document.getElementById('linksSearch').addEventListener('input', function() {
+            const q = this.value.toLowerCase();
+            document.querySelectorAll('.link-card').forEach(card => {
+                card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - VLOGE</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/static-pages.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="/" class="logo"><img src="/img/logo/logo.png" alt="VLOGE" class="logo__img"></a>
+                <div class="burger" id="burger"><span></span><span></span><span></span></div>
+                <nav class="nav" id="nav">
+                    <a href="/" class="nav__link">Все</a>
+                    <a href="/useful-links" class="nav__link">Полезные ссылки</a>
+                    <a href="/resources" class="nav__link">Ресурсы</a>
+                    <a href="/about" class="nav__link nav__link--active">О нас</a>
+                    <div class="nav__buttons" id="navButtons">
+                        <a href="/login" class="btn-login">Войти</a>
+                        <a href="/register" class="btn-register">Регистрация</a>
+                    </div>
+                </nav>
+                <div class="header__actions" id="headerActions">
+                    <a href="/login" class="btn-login">Войти</a>
+                    <a href="/register" class="btn-register">Регистрация</a>
+                </div>
+                <div class="user-profile" id="userProfile">
+                    <button class="user-profile__btn" id="profileBtn">
+                        <div class="user-profile__avatar" id="userAvatar"></div>
+                        <span class="user-profile__name" id="userName">Загрузка...</span>
+                        <div class="user-profile__arrow"></div>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown__header">
+                            <div class="user-dropdown__header-name" id="dropdownName">Имя пользователя</div>
+                            <div class="user-dropdown__header-email" id="dropdownEmail">email@example.com</div>
+                        </div>
+                        <div class="user-dropdown__menu">
+                            <a href="/profile" class="user-dropdown__item"><span class="user-dropdown__item-icon">👤</span><span>Мой профиль</span></a>
+                            <a href="/my-articles" class="user-dropdown__item"><span class="user-dropdown__item-icon">📝</span><span>Мои статьи</span></a>
+                            <a href="/bookmarks" class="user-dropdown__item"><span class="user-dropdown__item-icon">🔖</span><span>Закладки</span></a>
+                            <a href="/settings" class="user-dropdown__item"><span class="user-dropdown__item-icon">⚙️</span><span>Настройки</span></a>
+                        </div>
+                        <div class="user-dropdown__divider"></div>
+                        <div class="user-dropdown__menu">
+                            <a href="#" class="user-dropdown__item user-dropdown__logout" id="logoutBtn"><span class="user-dropdown__item-icon">🚪</span><span>Выйти</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="static-hero">
+            <div class="container">
+                <span class="static-hero__label">О нас</span>
+                <h1 class="static-hero__title">Мы — VLOGE</h1>
+                <p class="static-hero__subtitle">Платформа для тех, кто хочет делиться знаниями и находить полезные материалы в одном месте</p>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <section class="about-mission">
+                <div class="about-mission__text">
+                    <h2 class="section-title">Наша миссия</h2>
+                    <p>VLOGE — это блог-платформа, созданная для того, чтобы каждый мог делиться своими знаниями, опытом и идеями. Мы верим, что полезный контент должен быть доступен всем — без лишних барьеров и платных стен.</p>
+                    <p>Мы создаём пространство, где авторы и читатели встречаются, обмениваются опытом и вместе растут. Наши материалы охватывают программирование, дизайн, маркетинг, нейросети и многое другое.</p>
+                    <p>Каждый автор на нашей платформе — это реальный эксперт или практик, который хочет помочь другим. Мы ценим честность, глубину и практическую пользу каждой публикации.</p>
+                </div>
+                <div class="about-mission__image">
+                    <div class="about-mission__img-placeholder"><span>💡</span></div>
+                </div>
+            </section>
+
+            <section class="about-stats">
+                <div class="about-stat"><span class="about-stat__number">500+</span><span class="about-stat__label">Статей опубликовано</span></div>
+                <div class="about-stat"><span class="about-stat__number">12K</span><span class="about-stat__label">Читателей в месяц</span></div>
+                <div class="about-stat"><span class="about-stat__number">150+</span><span class="about-stat__label">Авторов на платформе</span></div>
+                <div class="about-stat"><span class="about-stat__number">8</span><span class="about-stat__label">Категорий</span></div>
+            </section>
+
+            <section class="about-team">
+                <h2 class="section-title">Наша команда</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-card__avatar" style="background:linear-gradient(135deg,#00D856,#00b847)">АК</div>
+                        <h3 class="team-card__name">Алексей Ким</h3>
+                        <p class="team-card__role">Основатель и CEO</p>
+                        <p class="team-card__bio">Full-stack разработчик с 8-летним опытом. Создал VLOGE, чтобы помочь специалистам делиться знаниями.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card__avatar" style="background:linear-gradient(135deg,#667eea,#764ba2)">МС</div>
+                        <h3 class="team-card__name">Мария Смирнова</h3>
+                        <p class="team-card__role">Главный редактор</p>
+                        <p class="team-card__bio">Журналист и контент-стратег. Следит за качеством материалов и развитием редакционной политики.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card__avatar" style="background:linear-gradient(135deg,#f093fb,#f5576c)">ДП</div>
+                        <h3 class="team-card__name">Дмитрий Петров</h3>
+                        <p class="team-card__role">Lead Designer</p>
+                        <p class="team-card__bio">UX/UI дизайнер, который создал визуальный облик VLOGE. Обожает минимализм и функциональность.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card__avatar" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">АН</div>
+                        <h3 class="team-card__name">Анна Новикова</h3>
+                        <p class="team-card__role">Community Manager</p>
+                        <p class="team-card__bio">Отвечает за сообщество авторов и читателей, организует мероприятия и поддерживает атмосферу.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-values">
+                <h2 class="section-title">Наши ценности</h2>
+                <div class="values-grid">
+                    <div class="value-card"><span class="value-card__icon">🎯</span><h3 class="value-card__title">Польза</h3><p class="value-card__text">Каждый материал должен решать реальную проблему или давать новые знания читателю</p></div>
+                    <div class="value-card"><span class="value-card__icon">🔓</span><h3 class="value-card__title">Открытость</h3><p class="value-card__text">Все материалы бесплатны и доступны без регистрации — знания для всех</p></div>
+                    <div class="value-card"><span class="value-card__icon">✍️</span><h3 class="value-card__title">Авторство</h3><p class="value-card__text">Мы уважаем труд каждого автора и помогаем им расти и находить свою аудиторию</p></div>
+                    <div class="value-card"><span class="value-card__icon">🤝</span><h3 class="value-card__title">Сообщество</h3><p class="value-card__text">Мы строим живое, дружелюбное и профессиональное комьюнити</p></div>
+                </div>
+            </section>
+
+            <section class="about-cta">
+                <h2 class="about-cta__title">Хотите стать автором?</h2>
+                <p class="about-cta__text">Делитесь своими знаниями с тысячами читателей. Регистрация бесплатна.</p>
+                <div class="about-cta__buttons">
+                    <a href="/register" class="btn-primary">Начать писать</a>
+                    <a href="/" class="btn-secondary">Читать статьи</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__column">
+                    <div class="footer__logo"><img src="/img/logo/logo-black.png" alt="VLOGE" class="footer__logo-img"></div>
+                    <div class="footer__contacts">
+                        <a href="tel:" class="footer__phone">+7 (700) 700-70-70</a>
+                        <a href="mailto:" class="footer__email">vloge@gmail.com</a>
+                        <p class="footer__address">Алматы, Толе би/Розыбакиева 14/35</p>
+                    </div>
+                    <div class="footer__social"><a href="#" class="social-link">ВК</a><a href="#" class="social-link">ТГ</a></div>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Категории</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Программирование</a></li><li><a href="#">Маркетинг</a></li>
+                        <li><a href="#">Дизайн</a></li><li><a href="#">Аналитика</a></li>
+                        <li><a href="#">Менеджмент</a></li><li><a href="#">Нейросети</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">О нас</h4>
+                    <ul class="footer__links">
+                        <li><a href="/about">О компании</a></li>
+                        <li><a href="/useful-links">Полезные ссылки</a></li>
+                        <li><a href="/resources">Ресурсы</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Документы</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Юридическая информация</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__divider"></div>
+                <div class="footer__info">
+                    <p class="footer__copyright">© VLOGE 2026</p>
+                    <p class="footer__description">Мы делимся знаниями, идеями и опытом так, чтобы каждый материал был понятным, интересным и действительно полезным.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/profile.js"></script>
+</body>
+</html>

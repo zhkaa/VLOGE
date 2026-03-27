@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создать статью - VLOGE</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="/" class="logo"><img src="/img/logo/logo.png" alt="VLOGE" class="logo__img"></a>
+                <div class="burger" id="burger"><span></span><span></span><span></span></div>
+                <nav class="nav" id="nav">
+                    <a href="/" class="nav__link">Все</a>
+                    <a href="/useful-links" class="nav__link">Полезные ссылки</a>
+                    <a href="/resources" class="nav__link">Ресурсы</a>
+                    <a href="/about" class="nav__link">О нас</a>
+                    <div class="nav__buttons" id="navButtons">
+                        <a href="/login" class="btn-login">Войти</a>
+                        <a href="/register" class="btn-register">Регистрация</a>
+                    </div>
+                </nav>
+                <div class="header__actions" id="headerActions">
+                    <a href="/login" class="btn-login">Войти</a>
+                    <a href="/register" class="btn-register">Регистрация</a>
+                </div>
+                <div class="user-profile" id="userProfile">
+                    <button class="user-profile__btn" id="profileBtn">
+                        <div class="user-profile__avatar" id="userAvatar"></div>
+                        <span class="user-profile__name" id="userName">Загрузка...</span>
+                        <div class="user-profile__arrow"></div>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown__header">
+                            <div class="user-dropdown__header-name" id="dropdownName">Имя пользователя</div>
+                            <div class="user-dropdown__header-email" id="dropdownEmail">email@example.com</div>
+                        </div>
+                        <div class="user-dropdown__menu">
+                            <a href="/profile" class="user-dropdown__item"><span class="user-dropdown__item-icon">👤</span><span>Мой профиль</span></a>
+                            <a href="/my-articles" class="user-dropdown__item"><span class="user-dropdown__item-icon">📝</span><span>Мои статьи</span></a>
+                            <a href="/bookmarks" class="user-dropdown__item"><span class="user-dropdown__item-icon">🔖</span><span>Закладки</span></a>
+                            <a href="/settings" class="user-dropdown__item"><span class="user-dropdown__item-icon">⚙️</span><span>Настройки</span></a>
+                        </div>
+                        <div class="user-dropdown__divider"></div>
+                        <div class="user-dropdown__menu">
+                            <a href="#" class="user-dropdown__item user-dropdown__logout" id="logoutBtn"><span class="user-dropdown__item-icon">🚪</span><span>Выйти</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="create-article-page">
+        <div class="container">
+
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:30px;">
+                <div>
+                    <h1 style="font-size:32px; font-weight:700; color:var(--dark); margin-bottom:6px;">✍️ Новая статья</h1>
+                    <p style="color:var(--gray); font-size:15px;">Поделитесь своими знаниями с читателями VLOGE</p>
+                </div>
+                <a href="/my-articles" style="color:var(--gray); font-size:14px; text-decoration:none;">← Мои статьи</a>
+            </div>
+
+            <div class="create-article-layout">
+
+                <div class="create-article-main">
+
+                    <!-- Обложка -->
+                    <div class="form-group">
+                        <label class="form-label">Обложка статьи</label>
+                        <label class="cover-upload" id="coverUpload">
+                            <span class="cover-upload__icon">🖼️</span>
+                            <span class="cover-upload__text">Нажмите для загрузки изображения</span>
+                            <span class="cover-upload__hint">PNG, JPG, WEBP до 5 МБ · Рекомендуется 1200×630</span>
+                            <input type="file" accept="image/*" id="coverInput">
+                        </label>
+                        <img id="coverPreview" style="display:none; width:100%; height:240px; object-fit:cover; border-radius:10px; margin-top:10px;" alt="Обложка">
+                    </div>
+
+                    <!-- Заголовок -->
+                    <div class="form-group">
+                        <label class="form-label" for="articleTitle">Заголовок <span>*</span></label>
+                        <input type="text" id="articleTitle" class="form-input" placeholder="Придумайте цепляющий заголовок..." maxlength="120">
+                        <p class="char-counter"><span id="titleCount">0</span>/120</p>
+                    </div>
+
+                    <!-- Категория -->
+                    <div class="form-group">
+                        <label class="form-label" for="articleCategory">Категория <span>*</span></label>
+                        <select id="articleCategory" class="form-select">
+                            <option value="">Выберите категорию...</option>
+                            <option value="programming">💻 Программирование</option>
+                            <option value="design">🎨 Дизайн</option>
+                            <option value="marketing">📈 Маркетинг</option>
+                            <option value="analytics">📊 Аналитика</option>
+                            <option value="management">🗂️ Менеджмент</option>
+                            <option value="ai">🤖 Нейросети</option>
+                            <option value="games">🎮 Игры</option>
+                            <option value="other">💡 Другое</option>
+                        </select>
+                    </div>
+
+                    <!-- Краткое описание -->
+                    <div class="form-group">
+                        <label class="form-label" for="articleExcerpt">Краткое описание <span>*</span></label>
+                        <textarea id="articleExcerpt" class="form-textarea" style="min-height:90px" placeholder="Опишите в 2-3 предложениях о чём ваша статья..." maxlength="300"></textarea>
+                        <p class="char-counter"><span id="excerptCount">0</span>/300</p>
+                    </div>
+
+                    <!-- Редактор -->
+                    <div class="form-group">
+                        <label class="form-label">Текст статьи <span>*</span></label>
+                        <div class="toolbar">
+                            <button class="toolbar-btn" onclick="insertTag('**','**')"><b>B</b></button>
+                            <button class="toolbar-btn" onclick="insertTag('*','*')"><i>I</i></button>
+                            <button class="toolbar-btn" onclick="insertLine('## ')">H2</button>
+                            <button class="toolbar-btn" onclick="insertLine('### ')">H3</button>
+                            <button class="toolbar-btn" onclick="insertLine('> ')">❝</button>
+                            <button class="toolbar-btn" onclick="insertTag('\`','\`')">{ }</button>
+                            <button class="toolbar-btn" onclick="insertBlock('\`\`\`\n','\n\`\`\`')">⌨️</button>
+                            <button class="toolbar-btn" onclick="insertLine('- ')">≡</button>
+                            <button class="toolbar-btn" onclick="insertLine('1. ')">1.</button>
+                            <button class="toolbar-btn" onclick="insertLink()">🔗</button>
+                        </div>
+                        <textarea id="articleContent" class="form-textarea" placeholder="Напишите текст вашей статьи...
+
+Поддерживается Markdown:
+## Заголовок 2
+### Заголовок 3
+**жирный**, *курсив*
+- элемент списка
+> цитата
+\`код\`"></textarea>
+                        <p class="char-counter">Символов: <span id="contentCount">0</span> · Время чтения: ~<span id="readTime">0</span> мин</p>
+                    </div>
+
+                    <!-- Теги -->
+                    <div class="form-group">
+                        <label class="form-label">Теги</label>
+                        <div class="tags-input" id="tagsContainer">
+                            <input type="text" class="tags-input__field" id="tagInput" placeholder="Введите тег и нажмите Enter...">
+                        </div>
+                        <p class="form-hint">До 5 тегов. Нажмите Enter для добавления.</p>
+                    </div>
+
+                </div>
+
+                <!-- Сайдбар -->
+                <div class="create-article-sidebar">
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-card__title">📤 Публикация</h3>
+                        <button class="publish-btn" id="publishBtn">Опубликовать статью</button>
+                        <button class="draft-btn" id="draftBtn">Сохранить черновик</button>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-card__title">👁️ Предпросмотр</h3>
+                        <div class="preview-area" id="previewArea">
+                            <span style="color:#a0aec0">Предпросмотр заголовка появится здесь...</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card" style="background:#f8fffe; border:2px solid #e6f7ed;">
+                        <h3 class="sidebar-card__title">💡 Советы автора</h3>
+                        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;">
+                            <li style="font-size:13px; color:var(--gray); display:flex; gap:8px;">✅ Пишите конкретно и по делу</li>
+                            <li style="font-size:13px; color:var(--gray); display:flex; gap:8px;">✅ Добавляйте примеры и код</li>
+                            <li style="font-size:13px; color:var(--gray); display:flex; gap:8px;">✅ Используйте подзаголовки</li>
+                            <li style="font-size:13px; color:var(--gray); display:flex; gap:8px;">✅ Объём: 800–3000 слов</li>
+                            <li style="font-size:13px; color:var(--gray); display:flex; gap:8px;">✅ Загрузите красивую обложку</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/profile.js"></script>
+    <script>
+        requireAuth();
+        const titleInput = document.getElementById('articleTitle');
+        const excerptInput = document.getElementById('articleExcerpt');
+        const contentInput = document.getElementById('articleContent');
+        const previewArea = document.getElementById('previewArea');
+
+        titleInput.addEventListener('input', function() {
+            document.getElementById('titleCount').textContent = this.value.length;
+            previewArea.innerHTML = this.value
+                ? `<strong style="font-size:15px;color:var(--dark)">${this.value}</strong>`
+                : '<span style="color:#a0aec0">Предпросмотр заголовка появится здесь...</span>';
+        });
+
+        excerptInput.addEventListener('input', function() {
+            document.getElementById('excerptCount').textContent = this.value.length;
+        });
+
+        contentInput.addEventListener('input', function() {
+            const words = this.value.trim() ? this.value.trim().split(/\s+/).length : 0;
+            document.getElementById('contentCount').textContent = this.value.length;
+            document.getElementById('readTime').textContent = Math.max(1, Math.ceil(words / 200));
+        });
+
+        document.getElementById('coverInput').addEventListener('change', function() {
+            const file = this.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                const preview = document.getElementById('coverPreview');
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+                document.getElementById('coverUpload').style.display = 'none';
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Теги
+        const tags = [];
+        const tagInput = document.getElementById('tagInput');
+        const tagsContainer = document.getElementById('tagsContainer');
+
+        tagInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && this.value.trim()) {
+                e.preventDefault();
+                const tag = this.value.trim();
+                if (!tags.includes(tag) && tags.length < 5) {
+                    tags.push(tag);
+                    renderTags();
+                }
+                this.value = '';
+            }
+        });
+
+        function renderTags() {
+            Array.from(tagsContainer.querySelectorAll('.tag-item')).forEach(t => t.remove());
+            tags.forEach((tag, i) => {
+                const el = document.createElement('span');
+                el.className = 'tag-item';
+                el.innerHTML = `${tag}<span class="tag-item__remove" data-i="${i}">×</span>`;
+                tagsContainer.insertBefore(el, tagInput);
+            });
+            tagsContainer.querySelectorAll('.tag-item__remove').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    tags.splice(+this.dataset.i, 1);
+                    renderTags();
+                });
+            });
+        }
+
+        function insertTag(before, after) {
+            const el = contentInput;
+            const start = el.selectionStart, end = el.selectionEnd;
+            const sel = el.value.substring(start, end) || 'текст';
+            el.value = el.value.substring(0, start) + before + sel + after + el.value.substring(end);
+            el.focus();
+        }
+        function insertLine(prefix) {
+            const el = contentInput;
+            const start = el.selectionStart;
+            const lineStart = el.value.lastIndexOf('\n', start - 1) + 1;
+            el.value = el.value.substring(0, lineStart) + prefix + el.value.substring(lineStart);
+            el.focus();
+        }
+        function insertBlock(before, after) {
+            const el = contentInput;
+            const start = el.selectionStart;
+            el.value = el.value.substring(0, start) + before + after + el.value.substring(start);
+            el.focus();
+        }
+        function insertLink() {
+            const url = prompt('Введите URL:');
+            if (!url) return;
+            const el = contentInput;
+            const start = el.selectionStart, end = el.selectionEnd;
+            const text = el.value.substring(start, end) || 'текст ссылки';
+            el.value = el.value.substring(0, start) + `[${text}](${url})` + el.value.substring(end);
+            el.focus();
+        }
+
+        async function saveArticle(status) {
+            const title = titleInput.value.trim();
+            const category = document.getElementById('articleCategory').value;
+            const excerpt = document.getElementById('articleExcerpt').value.trim();
+            const content = contentInput.value.trim();
+            const cover_image = document.getElementById('coverPreview').src || null;
+
+            if (!title) { showToast('Введите заголовок', 'error'); titleInput.focus(); return; }
+            if (!category) { showToast('Выберите категорию', 'error'); return; }
+            if (!content) { showToast('Напишите текст статьи', 'error'); contentInput.focus(); return; }
+
+            const editId = window.location.pathname.match(/\/edit-article\/(\d+)/)?.[1];
+            const url = editId ? `/api/articles/${editId}` : '/api/articles';
+            const method = editId ? 'put' : 'post';
+
+            const data = await API[method](url, { title, excerpt, content, category, cover_image, tags, status });
+            if (data.success) {
+                showToast(status === 'published' ? 'Статья опубликована!' : 'Черновик сохранён!');
+                setTimeout(() => window.location.href = '/my-articles', 1000);
+            } else {
+                showToast(data.message || 'Ошибка', 'error');
+            }
+        }
+
+        document.getElementById('publishBtn').addEventListener('click', () => saveArticle('published'));
+        document.getElementById('draftBtn').addEventListener('click', () => saveArticle('draft'));
+    </script>
+</body>
+</html>

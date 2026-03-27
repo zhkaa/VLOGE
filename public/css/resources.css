@@ -1,0 +1,179 @@
+.nav__link--active {
+    color: var(--primary) !important;
+}
+.nav__link--active::after {
+    width: 100% !important;
+}
+
+.static-hero {
+    background: linear-gradient(135deg, #f8fffe 0%, #e6f7ed 100%);
+    padding: 80px 0 60px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: center;
+}
+.static-hero__label {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+.static-hero__title {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+}
+.static-hero__subtitle {
+    font-size: 20px;
+    color: var(--gray);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.resources-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 40px 0 0;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 50px;
+}
+.resources-tab {
+    padding: 12px 24px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray);
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.3s;
+    bottom: -2px;
+    position: relative;
+    border-bottom: 2px solid transparent;
+}
+.resources-tab:hover { color: var(--dark); }
+.resources-tab.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+.resources-section { display: none; }
+.resources-section.active { display: block; }
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+    margin-bottom: 60px;
+}
+.resource-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+}
+.resource-card__cover {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+}
+.resource-card__body { padding: 24px; }
+.resource-card__badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+.badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.badge--free { background: #e6f7ed; color: var(--primary); }
+.badge--paid { background: #fff3cd; color: #856404; }
+.badge--level { background: #e8eaf6; color: #3f51b5; }
+.resource-card__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 8px;
+}
+.resource-card__desc {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+.resource-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+}
+.resource-card__meta { font-size: 13px; color: var(--gray); }
+.resource-card__link {
+    padding: 8px 18px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+.resource-card__link:hover { background: var(--primary-hover); }
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 60px;
+}
+.tool-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid transparent;
+}
+.tool-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    border-color: var(--primary);
+}
+.tool-card__icon { font-size: 44px; }
+.tool-card__name { font-size: 16px; font-weight: 700; color: var(--dark); }
+.tool-card__desc { font-size: 13px; color: var(--gray); line-height: 1.4; }
+.tool-card__badge { font-size: 12px; font-weight: 600; }
+
+@media (max-width: 768px) {
+    .static-hero__title { font-size: 32px; }
+    .resources-tabs { flex-wrap: wrap; }
+    .resources-grid { grid-template-columns: 1fr; }
+    .tools-grid { grid-template-columns: repeat(2, 1fr); }
+}

@@ -1,0 +1,252 @@
+.edit-article-page {
+    padding: 50px 0 80px;
+    background: #f8f9fa;
+    min-height: calc(100vh - 80px);
+}
+
+.edit-article-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.edit-article-header__info h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 6px;
+}
+
+.edit-article-header__info p {
+    color: var(--gray);
+    font-size: 15px;
+}
+
+.edit-article-back {
+    color: var(--gray);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+.edit-article-back:hover {
+    color: var(--dark);
+}
+
+.edit-loading {
+    text-align: center;
+    padding: 80px 0;
+    color: var(--gray);
+    font-size: 16px;
+}
+
+.edit-error {
+    text-align: center;
+    padding: 80px 0;
+    color: #e53e3e;
+    font-size: 16px;
+}
+
+/* ── Ноутбуки (1024px) ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .edit-article-page {
+        padding: 36px 0 60px;
+    }
+
+    .edit-article-header__info h1 {
+        font-size: 26px;
+    }
+
+    /* Сайдбар становится чуть уже */
+    .create-article-layout {
+        grid-template-columns: 1fr 280px;
+        gap: 20px;
+    }
+
+    .create-article-main {
+        padding: 28px;
+    }
+}
+
+/* ── Планшеты (768px) ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .edit-article-page {
+        padding: 24px 0 48px;
+    }
+
+    .edit-article-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .edit-article-header__info h1 {
+        font-size: 22px;
+    }
+
+    .edit-article-header__info p {
+        font-size: 13px;
+    }
+
+    /* Форма и сайдбар — в одну колонку */
+    .create-article-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Сайдбар перестаёт быть sticky */
+    .create-article-sidebar {
+        position: static;
+    }
+
+    /* Сайдбар идёт ПЕРВЫМ на мобиле (кнопки сохранения сверху) */
+    .create-article-sidebar {
+        order: -1;
+    }
+
+    .create-article-main {
+        padding: 20px;
+    }
+
+    .sidebar-card {
+        padding: 18px;
+    }
+
+    /* Обложка меньше */
+    .cover-upload {
+        padding: 28px 20px;
+    }
+
+    #coverPreview {
+        height: 180px !important;
+    }
+
+    /* Toolbar переносится */
+    .toolbar {
+        gap: 6px;
+    }
+
+    .toolbar-btn {
+        padding: 6px 8px;
+        font-size: 13px;
+        min-width: 30px;
+    }
+
+    /* Textarea чуть ниже */
+    .form-textarea {
+        min-height: 280px;
+    }
+}
+
+/* ── Телефоны (480px) ──────────────────────────────────────────── */
+@media (max-width: 480px) {
+    .edit-article-page {
+        padding: 16px 0 40px;
+    }
+
+    .edit-article-header__info h1 {
+        font-size: 20px;
+    }
+
+    .create-article-main {
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    .sidebar-card {
+        padding: 14px;
+        border-radius: 10px;
+    }
+
+    .sidebar-card__title {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .form-label {
+        font-size: 13px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    .form-textarea {
+        min-height: 240px;
+    }
+
+    /* Toolbar — иконки мельче, умещаются в 2 ряда */
+    .toolbar {
+        gap: 4px;
+        padding: 8px 0;
+    }
+
+    .toolbar-btn {
+        padding: 5px 7px;
+        font-size: 12px;
+        min-width: 28px;
+    }
+
+    /* Кнопки публикации */
+    .publish-btn {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .draft-btn {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    /* Обложка */
+    .cover-upload {
+        padding: 20px 12px;
+    }
+
+    .cover-upload__icon {
+        font-size: 28px;
+    }
+
+    .cover-upload__text {
+        font-size: 13px;
+    }
+
+    .cover-upload__hint {
+        font-size: 11px;
+    }
+
+    #coverPreview {
+        height: 160px !important;
+    }
+
+    /* Теги */
+    .tags-input__field {
+        font-size: 13px;
+    }
+
+    .tag-item {
+        font-size: 12px;
+        padding: 3px 8px;
+    }
+
+    /* Счётчики */
+    .char-counter {
+        font-size: 11px;
+    }
+
+    .form-hint {
+        font-size: 11px;
+    }
+
+    /* Предпросмотр */
+    .preview-area {
+        padding: 12px;
+        font-size: 12px;
+    }
+}

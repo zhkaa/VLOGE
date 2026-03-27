@@ -22,9 +22,9 @@
 
                 <nav class="nav" id="nav">
                     <a href="/" class="nav__link">Все</a>
-                    <a href="#" class="nav__link">Полезные ссылки</a>
-                    <a href="#" class="nav__link">Ресурсы</a>
-                    <a href="#" class="nav__link">О нас</a>
+                    <a href="/useful-links" class="nav__link">Полезные ссылки</a>
+                    <a href="/resources" class="nav__link">Ресурсы</a>
+                    <a href="/about" class="nav__link">О нас</a>
                 </nav>
 
                 <div class="user-profile active" id="userProfile">
@@ -280,7 +280,61 @@
         </div>
     </footer>
 
+    <script src="/js/api.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/profile.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        requireAuth();
+
+        // ── Изменить пароль ──────────────────────────────────────────────────────
+        document.querySelector('.settings-item__btn').addEventListener('click', () => {
+            const currentPassword = prompt('Введите текущий пароль:');
+            if (!currentPassword) return;
+            const newPassword = prompt('Введите новый пароль (минимум 8 символов):');
+            if (!newPassword) return;
+            if (newPassword.length < 8) { showToast('Пароль минимум 8 символов', 'error'); return; }
+            const confirmPassword = prompt('Подтвердите новый пароль:');
+            if (newPassword !== confirmPassword) { showToast('Пароли не совпадают', 'error'); return; }
+            API.put('/api/me/password', { currentPassword, newPassword }).then(data => {
+                if (data.success) showToast('Пароль изменён!');
+                else showToast(data.message || 'Ошибка', 'error');
+            });
+        });
+
+        // ── Переключатели ────────────────────────────────────────────────────────
+        const toggles = document.querySelectorAll('.settings-toggle input[type="checkbox"]');
+        const keys = ['2fa', 'notify_email', 'notify_comments', 'notify_likes', 'privacy_public', 'privacy_stats'];
+
+        toggles.forEach((toggle, i) => {
+            const saved = localStorage.getItem('setting_' + keys[i]);
+            if (saved !== null) toggle.checked = saved === 'true';
+        });
+
+        toggles.forEach((toggle, i) => {
+            toggle.addEventListener('change', () => {
+                localStorage.setItem('setting_' + keys[i], toggle.checked);
+                showToast(toggle.checked ? 'Включено' : 'Выключено');
+            });
+        });
+
+        // ── Удалить аккаунт ──────────────────────────────────────────────────────
+        document.querySelector('.settings-item__btn--danger').addEventListener('click', async () => {
+            const confirm1 = confirm('Вы уверены? Это действие необратимо — все ваши статьи, закладки и данные будут удалены.');
+            if (!confirm1) return;
+            const input = prompt('Для подтверждения введите слово "УДАЛИТЬ":');
+            if (input !== 'УДАЛИТЬ') { showToast('Удаление отменено', 'error'); return; }
+            const data = await API.delete('/api/me');
+            if (data.success) {
+                localStorage.removeItem('authToken');
+                localStorage.removeItem('userData');
+                showToast('Аккаунт удалён');
+                setTimeout(() => window.location.href = '/', 1500);
+            } else {
+                showToast('Ошибка удаления', 'error');
+            }
+        });
+    });
+    </script>
 </body>
 </html>

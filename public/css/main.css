@@ -11,6 +11,12 @@
 @import 'my-articles.css';
 @import 'profile-form.css';
 @import 'settings.css';
+@import 'about.css';
+@import 'useful-links.css';
+@import 'create-article.css';
+@import 'resources.css';
+@import 'edit-article.css';
+
 
 :root {
     --primary: #00D856;

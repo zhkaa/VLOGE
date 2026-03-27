@@ -22,9 +22,9 @@
 
                 <nav class="nav" id="nav">
                     <a href="/" class="nav__link">Все</a>
-                    <a href="#" class="nav__link">Полезные ссылки</a>
-                    <a href="#" class="nav__link">Ресурсы</a>
-                    <a href="#" class="nav__link">О нас</a>
+                    <a href="/useful-links" class="nav__link">Полезные ссылки</a>
+                    <a href="/resources" class="nav__link">Ресурсы</a>
+                    <a href="/about" class="nav__link">О нас</a>
                 </nav>
 
                 <div class="user-profile active" id="userProfile">
@@ -102,89 +102,20 @@
                 <div class="profile-content">
                     <div class="profile-header">
                         <h1 class="profile-title">Мои статьи</h1>
-                        <button class="btn-primary">
+                        <a href="/create-article" class="btn-primary" style="text-decoration:none">
                             <span>➕</span> Создать статью
-                        </button>
+                        </a>
                     </div>
 
                     <!-- Фильтры -->
                     <div class="articles-filters">
-                        <button class="filter-btn active" data-filter="all">Все (12)</button>
-                        <button class="filter-btn" data-filter="published">Опубликованные (10)</button>
-                        <button class="filter-btn" data-filter="draft">Черновики (2)</button>
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="published">Опубликованные</button>
+                        <button class="filter-btn" data-filter="draft">Черновики</button>
                     </div>
 
                     <!-- Список статей -->
-                    <div class="my-articles-list">
-                        <!-- Статья 1 -->
-                        <div class="my-article-card" data-status="published">
-                            <div class="my-article-card__image">
-                                <img src="https://via.placeholder.com/300x200/00D856/ffffff?text=Статья+1" alt="Статья 1">
-                                <span class="my-article-card__status published">Опубликовано</span>
-                            </div>
-                            <div class="my-article-card__content">
-                                <span class="my-article-card__category">Программирование</span>
-                                <h3 class="my-article-card__title">Как начать карьеру в IT с нуля</h3>
-                                <p class="my-article-card__excerpt">Подробное руководство для тех, кто хочет войти в мир технологий и не знает с чего начать.</p>
-                                <div class="my-article-card__meta">
-                                    <span>📅 20 февраля 2026</span>
-                                    <span>👁️ 345</span>
-                                    <span>❤️ 23</span>
-                                </div>
-                                <div class="my-article-card__actions">
-                                    <button class="btn-icon" title="Редактировать">✏️</button>
-                                    <button class="btn-icon" title="Статистика">📊</button>
-                                    <button class="btn-icon" title="Поделиться">🔗</button>
-                                    <button class="btn-icon danger" title="Удалить">🗑️</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Статья 2 (черновик) -->
-                        <div class="my-article-card" data-status="draft">
-                            <div class="my-article-card__image">
-                                <img src="https://via.placeholder.com/300x200/FFC107/ffffff?text=Черновик" alt="Черновик">
-                                <span class="my-article-card__status draft">Черновик</span>
-                            </div>
-                            <div class="my-article-card__content">
-                                <span class="my-article-card__category">Дизайн</span>
-                                <h3 class="my-article-card__title">Основы UI/UX дизайна</h3>
-                                <p class="my-article-card__excerpt">Разбираем ключевые принципы создания удобных и красивых интерфейсов.</p>
-                                <div class="my-article-card__meta">
-                                    <span>📅 Сохранено 19 февраля 2026</span>
-                                </div>
-                                <div class="my-article-card__actions">
-                                    <button class="btn-icon" title="Редактировать">✏️</button>
-                                    <button class="btn-icon" title="Опубликовать">🚀</button>
-                                    <button class="btn-icon danger" title="Удалить">🗑️</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Статья 3 -->
-                        <div class="my-article-card" data-status="published">
-                            <div class="my-article-card__image">
-                                <img src="https://via.placeholder.com/300x200/00D856/ffffff?text=Статья+3" alt="Статья 3">
-                                <span class="my-article-card__status published">Опубликовано</span>
-                            </div>
-                            <div class="my-article-card__content">
-                                <span class="my-article-card__category">Маркетинг</span>
-                                <h3 class="my-article-card__title">SMM в 2026: тренды и стратегии</h3>
-                                <p class="my-article-card__excerpt">Какие платформы актуальны сейчас и как выстроить эффективную стратегию продвижения.</p>
-                                <div class="my-article-card__meta">
-                                    <span>📅 18 февраля 2026</span>
-                                    <span>👁️ 567</span>
-                                    <span>❤️ 45</span>
-                                </div>
-                                <div class="my-article-card__actions">
-                                    <button class="btn-icon" title="Редактировать">✏️</button>
-                                    <button class="btn-icon" title="Статистика">📊</button>
-                                    <button class="btn-icon" title="Поделиться">🔗</button>
-                                    <button class="btn-icon danger" title="Удалить">🗑️</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="my-articles-list"></div>
                 </div>
             </div>
         </div>
@@ -262,6 +193,7 @@
         </div>
     </footer>
 
+    <script src="/js/api.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/profile.js"></script>
     <script src="/js/my-articles.js"></script>

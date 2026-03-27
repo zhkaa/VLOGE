@@ -22,15 +22,20 @@
 
                 <nav class="nav" id="nav">
                     <a href="/" class="nav__link">Все</a>
-                    <a href="#" class="nav__link">Полезные ссылки</a>
-                    <a href="#" class="nav__link">Ресурсы</a>
-                    <a href="#" class="nav__link">О нас</a>
+                    <a href="/useful-links" class="nav__link">Полезные ссылки</a>
+                    <a href="/resources" class="nav__link">Ресурсы</a>
+                    <a href="/about" class="nav__link">О нас</a>
                 </nav>
 
-                <div class="user-profile active" id="userProfile">
+                <div class="header__actions" id="headerActions">
+                    <a href="/login" class="btn-login">Войти</a>
+                    <a href="/register" class="btn-register">Регистрация</a>
+                </div>
+
+                <div class="user-profile" id="userProfile">
                     <button class="user-profile__btn" id="profileBtn">
-                        <div class="user-profile__avatar" id="userAvatar">ИИ</div>
-                        <span class="user-profile__name" id="userName">Иван Иванов</span>
+                        <div class="user-profile__avatar" id="userAvatar"></div>
+                        <span class="user-profile__name" id="userName">Загрузка...</span>
                         <div class="user-profile__arrow"></div>
                     </button>
 
@@ -299,6 +304,202 @@ function handleClick() {
         </div>
     </footer>
 
+    <script src="/js/api.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/profile.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+
+        // Получить ID статьи из URL (/article/123)
+        const articleId = window.location.pathname.split('/').pop();
+        if (!articleId) return;
+
+        // ── Загрузить статью ─────────────────────────────────────────────────
+        const { article } = await API.get(`/api/articles/${articleId}`);
+        if (!article) {
+            document.querySelector('.article').innerHTML = '<p style="text-align:center;padding:60px;color:#a0aec0">Статья не найдена</p>';
+            return;
+        }
+
+        // Заголовок страницы
+        document.title = `${article.title} - VLOGE`;
+
+        // Хлебные крошки
+        document.querySelector('.breadcrumbs__link:last-of-type').textContent = article.category || 'Статья';
+        document.querySelector('.breadcrumbs__current').textContent = article.title;
+
+        // Заголовок и категория
+        document.querySelector('.article__category').textContent = article.category || '';
+        document.querySelector('.article__title').textContent = article.title;
+
+        // Автор
+        const authorParts = (article.author_name || '').split(' ');
+        const initials = (authorParts[0]?.[0] || '') + (authorParts[1]?.[0] || '');
+        const avatarEl = document.querySelector('.article__author-avatar');
+        if (article.author_avatar) {
+            avatarEl.innerHTML = `<img src="${article.author_avatar}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+        } else {
+            avatarEl.textContent = initials.toUpperCase();
+        }
+        document.querySelector('.article__author-name').textContent = article.author_name || '';
+        document.querySelector('.article__date').textContent = new Date(article.created_at).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+
+        // Статистика
+        const words = (article.content || '').split(/\s+/).length;
+        const readTime = Math.max(1, Math.ceil(words / 200));
+        const statsEl = document.querySelector('.article__stats');
+        statsEl.innerHTML = `
+            <span class="article__stat">⏱ ${readTime} мин</span>
+            <span class="article__stat">👁️ ${article.views} просмотров</span>
+        `;
+
+        // Обложка
+        const imgEl = document.querySelector('.article__image img');
+        if (article.cover_image) {
+            imgEl.src = article.cover_image;
+            imgEl.alt = article.title;
+        } else {
+            document.querySelector('.article__image').style.display = 'none';
+        }
+
+        // Лайки
+        document.querySelector('.article__action-text').textContent = article.likes;
+
+        // Контент (простой markdown → html)
+        const content = article.content
+            .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+            .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.+?)\*/g, '<em>$1</em>')
+            .replace(/`([^`]+)`/g, '<code>$1</code>')
+            .replace(/^> (.+)$/gm, '<blockquote><p>$1</p></blockquote>')
+            .replace(/^- (.+)$/gm, '<li>$1</li>')
+            .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+            .replace(/\n\n/g, '</p><p>')
+            .replace(/^(?!<[hbupc]|<li|<ul|<bl)(.+)$/gm, '<p>$1</p>');
+        document.querySelector('.article__content').innerHTML = content;
+
+        // Теги
+        const tagsEl = document.querySelector('.article__tags');
+        try {
+            const tags = JSON.parse(article.tags || '[]');
+            tagsEl.innerHTML = tags.map(t => `<span class="article__tag">${t}</span>`).join('');
+            if (tags.length === 0) tagsEl.style.display = 'none';
+        } catch { tagsEl.style.display = 'none'; }
+
+        // ── Лайк ────────────────────────────────────────────────────────────
+        const likeBtn = document.querySelector('.article__action--like');
+        likeBtn.addEventListener('click', async () => {
+            if (!API.token()) { showToast('Войдите чтобы лайкнуть', 'error'); return; }
+            const data = await API.post(`/api/articles/${articleId}/like`, {});
+            if (data.success) {
+                likeBtn.querySelector('.article__action-text').textContent = data.likes;
+                likeBtn.style.color = data.liked ? '#e53e3e' : '';
+                showToast(data.liked ? '❤️ Лайк!' : 'Лайк убран');
+            }
+        });
+
+        // ── Закладка ─────────────────────────────────────────────────────────
+        const bookmarkBtn = document.querySelector('.article__action--bookmark');
+        bookmarkBtn.addEventListener('click', async () => {
+            if (!API.token()) { showToast('Войдите чтобы добавить в закладки', 'error'); return; }
+            const data = await API.post(`/api/bookmarks/${articleId}`, {});
+            if (data.success) {
+                bookmarkBtn.querySelector('.article__action-text').textContent = 'В закладках ✓';
+                bookmarkBtn.style.color = '#00D856';
+                showToast('🔖 Добавлено в закладки!');
+            } else {
+                // Уже в закладках — убрать
+                const del = await API.delete(`/api/bookmarks/${articleId}`);
+                if (del.success) {
+                    bookmarkBtn.querySelector('.article__action-text').textContent = 'В закладки';
+                    bookmarkBtn.style.color = '';
+                    showToast('Удалено из закладок');
+                }
+            }
+        });
+
+        // ── Поделиться ───────────────────────────────────────────────────────
+        document.querySelector('.article__action--share').addEventListener('click', () => {
+            navigator.clipboard.writeText(window.location.href)
+                .then(() => showToast('🔗 Ссылка скопирована!'))
+                .catch(() => showToast('Не удалось скопировать', 'error'));
+        });
+
+        // ── Комментарии ──────────────────────────────────────────────────────
+        await loadComments();
+
+        document.querySelector('.comment-form__submit').addEventListener('click', async () => {
+            if (!API.token()) { showToast('Войдите чтобы оставить комментарий', 'error'); return; }
+            const textarea = document.querySelector('.comment-form__textarea');
+            const text = textarea.value.trim();
+            if (!text) { showToast('Введите текст комментария', 'error'); return; }
+
+            const data = await API.post(`/api/articles/${articleId}/comments`, { text });
+            if (data.success) {
+                textarea.value = '';
+                showToast('Комментарий добавлен!');
+                await loadComments();
+            } else {
+                showToast(data.message || 'Ошибка', 'error');
+            }
+        });
+
+        async function loadComments() {
+            const { comments } = await API.get(`/api/articles/${articleId}/comments`);
+            const list = document.querySelector('.comments__list');
+            const title = document.querySelector('.comments__title');
+
+            title.textContent = `Комментарии (${comments.length})`;
+
+            if (comments.length === 0) {
+                list.innerHTML = '<p style="color:#a0aec0;padding:20px 0">Комментариев пока нет. Будьте первым!</p>';
+                return;
+            }
+
+            list.innerHTML = comments.map(c => {
+                const parts = (c.author_name || '').split(' ');
+                const ini = (parts[0]?.[0] || '') + (parts[1]?.[0] || '');
+                const timeAgo = getTimeAgo(c.created_at);
+                const isOwn = API.token() && JSON.parse(localStorage.getItem('userData') || '{}').id === c.user_id;
+                return `
+                    <div class="comment" data-id="${c.id}">
+                        <div class="comment__avatar">${c.author_avatar
+                            ? `<img src="${c.author_avatar}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`
+                            : ini.toUpperCase()}</div>
+                        <div class="comment__content">
+                            <div class="comment__header">
+                                <span class="comment__author">${c.author_name}</span>
+                                <span class="comment__date">${timeAgo}</span>
+                            </div>
+                            <p class="comment__text">${c.text}</p>
+                            <div class="comment__actions">
+                                ${isOwn ? `<button class="comment__action comment__delete" data-id="${c.id}" style="color:#e53e3e">🗑️ Удалить</button>` : ''}
+                            </div>
+                        </div>
+                    </div>`;
+            }).join('');
+
+            // Удаление своего комментария
+            list.querySelectorAll('.comment__delete').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    if (!confirm('Удалить комментарий?')) return;
+                    const data = await API.delete(`/api/comments/${btn.dataset.id}`);
+                    if (data.success) { showToast('Комментарий удалён'); await loadComments(); }
+                });
+            });
+        }
+
+        function getTimeAgo(dateStr) {
+            // Добавляем 'Z' чтобы браузер понял что это UTC, а не локальное время
+            const normalized = dateStr.includes('Z') || dateStr.includes('+') ? dateStr : dateStr.replace(' ', 'T') + 'Z';
+            const diff = Math.floor((Date.now() - new Date(normalized)) / 1000);
+            if (diff < 60) return 'только что';
+            if (diff < 3600) return `${Math.floor(diff / 60)} мин назад`;
+            if (diff < 86400) return `${Math.floor(diff / 3600)} ч назад`;
+            return new Date(normalized).toLocaleDateString('ru-RU');
+        }
+    });
+    </script>
 </body>
 </html>

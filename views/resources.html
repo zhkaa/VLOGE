@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ресурсы - VLOGE</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/static-pages.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="/" class="logo"><img src="/img/logo/logo.png" alt="VLOGE" class="logo__img"></a>
+                <div class="burger" id="burger"><span></span><span></span><span></span></div>
+                <nav class="nav" id="nav">
+                    <a href="/" class="nav__link">Все</a>
+                    <a href="/useful-links" class="nav__link">Полезные ссылки</a>
+                    <a href="/resources" class="nav__link nav__link--active">Ресурсы</a>
+                    <a href="/about" class="nav__link">О нас</a>
+                    <div class="nav__buttons" id="navButtons">
+                        <a href="/login" class="btn-login">Войти</a>
+                        <a href="/register" class="btn-register">Регистрация</a>
+                    </div>
+                </nav>
+                <div class="header__actions" id="headerActions">
+                    <a href="/login" class="btn-login">Войти</a>
+                    <a href="/register" class="btn-register">Регистрация</a>
+                </div>
+                <div class="user-profile" id="userProfile">
+                    <button class="user-profile__btn" id="profileBtn">
+                        <div class="user-profile__avatar" id="userAvatar"></div>
+                        <span class="user-profile__name" id="userName">Загрузка...</span>
+                        <div class="user-profile__arrow"></div>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown__header">
+                            <div class="user-dropdown__header-name" id="dropdownName">Имя пользователя</div>
+                            <div class="user-dropdown__header-email" id="dropdownEmail">email@example.com</div>
+                        </div>
+                        <div class="user-dropdown__menu">
+                            <a href="/profile" class="user-dropdown__item"><span class="user-dropdown__item-icon">👤</span><span>Мой профиль</span></a>
+                            <a href="/my-articles" class="user-dropdown__item"><span class="user-dropdown__item-icon">📝</span><span>Мои статьи</span></a>
+                            <a href="/bookmarks" class="user-dropdown__item"><span class="user-dropdown__item-icon">🔖</span><span>Закладки</span></a>
+                            <a href="/settings" class="user-dropdown__item"><span class="user-dropdown__item-icon">⚙️</span><span>Настройки</span></a>
+                        </div>
+                        <div class="user-dropdown__divider"></div>
+                        <div class="user-dropdown__menu">
+                            <a href="#" class="user-dropdown__item user-dropdown__logout" id="logoutBtn"><span class="user-dropdown__item-icon">🚪</span><span>Выйти</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="static-hero">
+            <div class="container">
+                <span class="static-hero__label">Ресурсы</span>
+                <h1 class="static-hero__title">Учись и развивайся</h1>
+                <p class="static-hero__subtitle">Курсы, книги и инструменты — всё что нужно для профессионального роста</p>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <div class="resources-tabs">
+                <button class="resources-tab active" data-tab="courses">📚 Курсы</button>
+                <button class="resources-tab" data-tab="books">📖 Книги</button>
+                <button class="resources-tab" data-tab="tools">🛠️ Инструменты</button>
+                <button class="resources-tab" data-tab="checklists">✅ Чек-листы</button>
+            </div>
+
+            <div class="resources-section active" id="courses">
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-card__cover" style="background:linear-gradient(135deg,#667eea,#764ba2)">📱</div>
+                        <div class="resource-card__body">
+                            <div class="resource-card__badges"><span class="badge badge--free">Бесплатно</span><span class="badge badge--level">Начинающий</span></div>
+                            <h3 class="resource-card__title">HTML и CSS с нуля</h3>
+                            <p class="resource-card__desc">Полный курс по основам веб-разработки. Вы создадите свой первый сайт уже на 3-м уроке.</p>
+                            <div class="resource-card__footer"><span class="resource-card__meta">⏱ 12 часов • 45 уроков</span><a href="#" class="resource-card__link">Начать</a></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-card__cover" style="background:linear-gradient(135deg,#f7971e,#ffd200)">⚛️</div>
+                        <div class="resource-card__body">
+                            <div class="resource-card__badges"><span class="badge badge--paid">Платно</span><span class="badge badge--level">Средний</span></div>
+                            <h3 class="resource-card__title">React для профессионалов</h3>
+                            <p class="resource-card__desc">Изучите React 18, TypeScript, Redux Toolkit и современные паттерны разработки.</p>
+                            <div class="resource-card__footer"><span class="resource-card__meta">⏱ 28 часов • 120 уроков</span><a href="#" class="resource-card__link">Подробнее</a></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-card__cover" style="background:linear-gradient(135deg,#11998e,#38ef7d)">🎨</div>
+                        <div class="resource-card__body">
+                            <div class="resource-card__badges"><span class="badge badge--free">Бесплатно</span><span class="badge badge--level">Начинающий</span></div>
+                            <h3 class="resource-card__title">Основы Figma</h3>
+                            <p class="resource-card__desc">Научитесь создавать интерфейсы в Figma с нуля. Инструменты, компоненты, прототипы.</p>
+                            <div class="resource-card__footer"><span class="resource-card__meta">⏱ 8 часов • 32 урока</span><a href="#" class="resource-card__link">Начать</a></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-card__cover" style="background:linear-gradient(135deg,#fc4a1a,#f7b733)">📊</div>
+                        <div class="resource-card__body">
+                            <div class="resource-card__badges"><span class="badge badge--paid">Платно</span><span class="badge badge--level">Продвинутый</span></div>
+                            <h3 class="resource-card__title">Digital-маркетинг 2026</h3>
+                            <p class="resource-card__desc">SEO, контекстная реклама, SMM, email-маркетинг и аналитика в одном курсе.</p>
+                            <div class="resource-card__footer"><span class="resource-card__meta">⏱ 40 часов • 180 уроков</span><a href="#" class="resource-card__link">Подробнее</a></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-card__cover" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">🐍</div>
+                        <div class="resource-card__body">
+                            <div class="resource-card__badges"><span class="badge badge--free">Бесплатно</span><span class="badge badge--level">Начинающий</span></div>
+                            <h3 class="resource-card__title">Python с нуля</h3>
+                            <p class="resource-card__desc">Основы Python для тех, кто никогда не программировал. Практические задачи на каждом уроке.</p>
+                            <div class="resource-card__footer"><span class="resource-card__meta">⏱ 20 часов • 80 уроков</span><a href="#" class="resource-card__link">Начать</a></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-card__cover" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">🤖</div>
+                        <div class="resource-card__body">
+                            <div class="resource-card__badges"><span class="badge badge--free">Бесплатно</span><span class="badge badge--level">Средний</span></div>
+                            <h3 class="resource-card__title">Работа с AI-инструментами</h3>
+                            <p class="resource-card__desc">ChatGPT, Midjourney, Claude и другие AI-инструменты для ускорения работы.</p>
+                            <div class="resource-card__footer"><span class="resource-card__meta">⏱ 6 часов • 24 урока</span><a href="#" class="resource-card__link">Начать</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resources-section" id="books">
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-card__cover" style="background:linear-gradient(135deg,#2d3748,#4a5568)">📕</div>
+                        <div class="resource-card__body">
+                            <div class="resource-card__badges"><span class="badge badge--level">Программирование</span></div>
+                            <h3 class="resource-card__title">Чистый код</h3>
+                            <p class="resource-card__desc">Роберт Мартин. Классика разработки о том, как писать читаемый и поддерживаемый код.</p>
+                            <div class="resource-card__footer"><span class="resource-card__meta">464 страницы</span><a href="#" class="resource-card__link">Читать</a></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-card__cover" style="background:linear-gradient(135deg,#e53e3e,#feb2b2)">📗</div>
+                        <div class="resource-card__body">
+                            <div class="resource-card__badges"><span class="badge badge--level">Маркетинг</span></div>
+                            <h3 class="resource-card__title">Доверительный маркетинг</h3>
+                            <p class="resource-card__desc">Сет Годин. Как строить долгосрочные отношения с клиентами и зарабатывать их доверие.</p>
+                            <div class="resource-card__footer"><span class="resource-card__meta">256 страниц</span><a href="#" class="resource-card__link">Читать</a></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-card__cover" style="background:linear-gradient(135deg,#00b09b,#96c93d)">📘</div>
+                        <div class="resource-card__body">
+                            <div class="resource-card__badges"><span class="badge badge--level">Дизайн</span></div>
+                            <h3 class="resource-card__title">Не заставляйте меня думать</h3>
+                            <p class="resource-card__desc">Стив Круг. Библия юзабилити. Как создавать интерфейсы, которые работают интуитивно.</p>
+                            <div class="resource-card__footer"><span class="resource-card__meta">216 страниц</span><a href="#" class="resource-card__link">Читать</a></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-card__cover" style="background:linear-gradient(135deg,#f093fb,#f5576c)">📙</div>
+                        <div class="resource-card__body">
+                            <div class="resource-card__badges"><span class="badge badge--level">Продуктивность</span></div>
+                            <h3 class="resource-card__title">Атомные привычки</h3>
+                            <p class="resource-card__desc">Джеймс Клир. Система небольших улучшений, которые приводят к выдающимся результатам.</p>
+                            <div class="resource-card__footer"><span class="resource-card__meta">320 страниц</span><a href="#" class="resource-card__link">Читать</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resources-section" id="tools">
+                <div class="tools-grid">
+                    <a href="https://vscode.dev" target="_blank" class="tool-card">
+                        <span class="tool-card__icon">💙</span><span class="tool-card__name">VS Code</span>
+                        <span class="tool-card__desc">Лучший редактор кода от Microsoft</span>
+                        <span class="tool-card__badge" style="color:var(--primary)">Бесплатно</span>
+                    </a>
+                    <a href="https://www.postman.com" target="_blank" class="tool-card">
+                        <span class="tool-card__icon">📮</span><span class="tool-card__name">Postman</span>
+                        <span class="tool-card__desc">Тестирование и разработка API</span>
+                        <span class="tool-card__badge" style="color:var(--primary)">Freemium</span>
+                    </a>
+                    <a href="https://vercel.com" target="_blank" class="tool-card">
+                        <span class="tool-card__icon">▲</span><span class="tool-card__name">Vercel</span>
+                        <span class="tool-card__desc">Деплой фронтенд-проектов за секунды</span>
+                        <span class="tool-card__badge" style="color:var(--primary)">Freemium</span>
+                    </a>
+                    <a href="https://www.figma.com" target="_blank" class="tool-card">
+                        <span class="tool-card__icon">🎯</span><span class="tool-card__name">Figma</span>
+                        <span class="tool-card__desc">Дизайн и прототипирование интерфейсов</span>
+                        <span class="tool-card__badge" style="color:var(--primary)">Freemium</span>
+                    </a>
+                    <a href="https://www.notion.so" target="_blank" class="tool-card">
+                        <span class="tool-card__icon">📓</span><span class="tool-card__name">Notion</span>
+                        <span class="tool-card__desc">Базы знаний, задачи, заметки</span>
+                        <span class="tool-card__badge" style="color:var(--primary)">Freemium</span>
+                    </a>
+                    <a href="https://linear.app" target="_blank" class="tool-card">
+                        <span class="tool-card__icon">🔷</span><span class="tool-card__name">Linear</span>
+                        <span class="tool-card__desc">Современный трекер задач для команд</span>
+                        <span class="tool-card__badge" style="color:var(--primary)">Freemium</span>
+                    </a>
+                    <a href="https://www.docker.com" target="_blank" class="tool-card">
+                        <span class="tool-card__icon">🐳</span><span class="tool-card__name">Docker</span>
+                        <span class="tool-card__desc">Контейнеризация приложений</span>
+                        <span class="tool-card__badge" style="color:var(--primary)">Freemium</span>
+                    </a>
+                    <a href="https://railway.app" target="_blank" class="tool-card">
+                        <span class="tool-card__icon">🚂</span><span class="tool-card__name">Railway</span>
+                        <span class="tool-card__desc">Простой деплой бэкенда и баз данных</span>
+                        <span class="tool-card__badge" style="color:var(--primary)">Freemium</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="resources-section" id="checklists">
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-card__cover" style="background:linear-gradient(135deg,#00D856,#00b847)">✅</div>
+                        <div class="resource-card__body">
+                            <div class="resource-card__badges"><span class="badge badge--free">Бесплатно</span></div>
+                            <h3 class="resource-card__title">Чек-лист запуска сайта</h3>
+                            <p class="resource-card__desc">50 пунктов, которые нужно проверить перед тем как запустить сайт в продакшн.</p>
+                            <div class="resource-card__footer"><span class="resource-card__meta">50 пунктов</span><a href="#" class="resource-card__link">Скачать PDF</a></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-card__cover" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">📋</div>
+                        <div class="resource-card__body">
+                            <div class="resource-card__badges"><span class="badge badge--free">Бесплатно</span></div>
+                            <h3 class="resource-card__title">SEO-аудит сайта</h3>
+                            <p class="resource-card__desc">Подробный чек-лист для самостоятельного SEO-аудита. Технические аспекты и контент.</p>
+                            <div class="resource-card__footer"><span class="resource-card__meta">35 пунктов</span><a href="#" class="resource-card__link">Скачать PDF</a></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-card__cover" style="background:linear-gradient(135deg,#f093fb,#f5576c)">🎨</div>
+                        <div class="resource-card__body">
+                            <div class="resource-card__badges"><span class="badge badge--free">Бесплатно</span></div>
+                            <h3 class="resource-card__title">Чек-лист UX-дизайна</h3>
+                            <p class="resource-card__desc">Проверьте свой интерфейс по 40 критериям удобства и доступности.</p>
+                            <div class="resource-card__footer"><span class="resource-card__meta">40 пунктов</span><a href="#" class="resource-card__link">Скачать PDF</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__column">
+                    <div class="footer__logo"><img src="/img/logo/logo-black.png" alt="VLOGE" class="footer__logo-img"></div>
+                    <div class="footer__contacts">
+                        <a href="tel:" class="footer__phone">+7 (700) 700-70-70</a>
+                        <a href="mailto:" class="footer__email">vloge@gmail.com</a>
+                        <p class="footer__address">Алматы, Толе би/Розыбакиева 14/35</p>
+                    </div>
+                    <div class="footer__social"><a href="#" class="social-link">ВК</a><a href="#" class="social-link">ТГ</a></div>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Категории</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Программирование</a></li><li><a href="#">Маркетинг</a></li>
+                        <li><a href="#">Дизайн</a></li><li><a href="#">Аналитика</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">О нас</h4>
+                    <ul class="footer__links">
+                        <li><a href="/about">О компании</a></li>
+                        <li><a href="/useful-links">Полезные ссылки</a></li>
+                        <li><a href="/resources">Ресурсы</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Документы</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Юридическая информация</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__divider"></div>
+                <div class="footer__info">
+                    <p class="footer__copyright">© VLOGE 2026</p>
+                    <p class="footer__description">Мы делимся знаниями, идеями и опытом так, чтобы каждый материал был понятным, интересным и действительно полезным.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/profile.js"></script>
+    <script>
+        const tabs = document.querySelectorAll('.resources-tab');
+        const sections = document.querySelectorAll('.resources-section');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

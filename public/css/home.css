@@ -1,13 +1,12 @@
 /* Основной контейнер */
 .main {
-    padding: 60px 0;
     min-height: calc(100vh - 200px);
 }
 
 /* Заголовок блога */
 .blog-hero {
     text-align: center;
-    margin-bottom: 60px;
+    margin: 60px 0;
 }
 
 .blog-hero__title {
@@ -25,6 +24,7 @@
 
 /* Сетка статей */
 .blog-grid {
+    margin-bottom: 60px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
     gap: 30px;

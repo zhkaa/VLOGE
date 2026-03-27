@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактировать статью - VLOGE</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="/" class="logo"><img src="/img/logo/logo.png" alt="VLOGE" class="logo__img"></a>
+                <div class="burger" id="burger"><span></span><span></span><span></span></div>
+                <nav class="nav" id="nav">
+                    <a href="/" class="nav__link">Все</a>
+                    <a href="/useful-links" class="nav__link">Полезные ссылки</a>
+                    <a href="/resources" class="nav__link">Ресурсы</a>
+                    <a href="/about" class="nav__link">О нас</a>
+                    <div class="nav__buttons" id="navButtons">
+                        <a href="/login" class="btn-login">Войти</a>
+                        <a href="/register" class="btn-register">Регистрация</a>
+                    </div>
+                </nav>
+                <div class="header__actions" id="headerActions">
+                    <a href="/login" class="btn-login">Войти</a>
+                    <a href="/register" class="btn-register">Регистрация</a>
+                </div>
+                <div class="user-profile" id="userProfile">
+                    <button class="user-profile__btn" id="profileBtn">
+                        <div class="user-profile__avatar" id="userAvatar"></div>
+                        <span class="user-profile__name" id="userName">Загрузка...</span>
+                        <div class="user-profile__arrow"></div>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown__header">
+                            <div class="user-dropdown__header-name" id="dropdownName">Имя пользователя</div>
+                            <div class="user-dropdown__header-email" id="dropdownEmail">email@example.com</div>
+                        </div>
+                        <div class="user-dropdown__menu">
+                            <a href="/profile" class="user-dropdown__item"><span class="user-dropdown__item-icon">👤</span><span>Мой профиль</span></a>
+                            <a href="/my-articles" class="user-dropdown__item"><span class="user-dropdown__item-icon">📝</span><span>Мои статьи</span></a>
+                            <a href="/bookmarks" class="user-dropdown__item"><span class="user-dropdown__item-icon">🔖</span><span>Закладки</span></a>
+                            <a href="/settings" class="user-dropdown__item"><span class="user-dropdown__item-icon">⚙️</span><span>Настройки</span></a>
+                        </div>
+                        <div class="user-dropdown__divider"></div>
+                        <div class="user-dropdown__menu">
+                            <a href="#" class="user-dropdown__item user-dropdown__logout" id="logoutBtn"><span class="user-dropdown__item-icon">🚪</span><span>Выйти</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="edit-article-page">
+        <div class="container">
+
+            <div class="edit-article-header">
+                <div class="edit-article-header__info">
+                    <h1>✏️ Редактировать статью</h1>
+                    <p>Внесите изменения и сохраните статью</p>
+                </div>
+                <a href="/my-articles" class="edit-article-back">← Мои статьи</a>
+            </div>
+
+            <!-- Сюда рендерится форма через JS -->
+            <div id="editRoot"><div class="edit-loading">Загрузка статьи...</div></div>
+
+        </div>
+    </main>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/profile.js"></script>
+    <script src="/js/edit-article.js"></script>
+</body>
+</html>
