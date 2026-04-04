@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности - VLOGE</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="/" class="logo">
+                    <img src="/img/logo/logo.png" alt="VLOGE" class="logo__img">
+                </a>
+                
+                <div class="burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="nav" id="nav">
+                    <a href="/" class="nav__link">Все</a>
+                    <a href="/useful-links" class="nav__link">Полезные ссылки</a>
+                    <a href="/resources" class="nav__link">Ресурсы</a>
+                    <a href="/about" class="nav__link">О нас</a>
+
+                    <div class="nav__buttons" id="navButtons">
+                        <a href="/login" class="btn-login">Войти</a>
+                        <a href="/register" class="btn-register">Регистрация</a>
+                    </div>
+                </nav>
+
+                <div class="header__actions" id="headerActions">
+                    <a href="/login" class="btn-login">Войти</a>
+                    <a href="/register" class="btn-register">Регистрация</a>
+                </div>
+
+                <div class="user-profile" id="userProfile">
+                    <button class="user-profile__btn" id="profileBtn">
+                        <div class="user-profile__avatar" id="userAvatar"></div>
+                        <span class="user-profile__name" id="userName">Загрузка...</span>
+                        <div class="user-profile__arrow"></div>
+                    </button>
+
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown__header">
+                            <div class="user-dropdown__header-name" id="dropdownName">Ибадуллаев Жалгас</div>
+                            <div class="user-dropdown__header-email" id="dropdownEmail">zhalgas@gmail.com</div>
+                        </div>
+                        <div class="user-dropdown__menu">
+                            <a href="/profile" class="user-dropdown__item">👤 Мой профиль</a>
+                            <a href="/my-articles" class="user-dropdown__item">📝 Мои статьи</a>
+                            <a href="/bookmarks" class="user-dropdown__item">🔖 Закладки</a>
+                            <a href="/settings" class="user-dropdown__item">⚙️ Настройки</a>
+                        </div>
+                        <div class="user-dropdown__divider"></div>
+                        <div class="user-dropdown__menu">
+                            <a href="#" class="user-dropdown__item user-dropdown__logout" id="logoutBtn">
+                                🚪 Выйти
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="blog-hero">
+                <h1 class="blog-hero__title">Политика конфиденциальности</h1>
+                <p class="blog-hero__subtitle">Редакция от 4 апреля 2026 года</p>
+            </section>
+
+            <section class="text-content">
+                <div class="text-content__inner">
+                    <h2>1. Общие сведения</h2>
+                    <p>Мы серьезно относимся к безопасности ваших данных. Настоящий документ описывает, как проект <strong>VLOGE</strong> собирает, использует и хранит информацию, полученную от пользователей сайта.</p>
+
+                    <h2>2. Сбор информации</h2>
+                    <p>Мы собираем только те данные, которые необходимы для полноценной работы сервиса:</p>
+                    <ul>
+                        <li>Данные профиля (имя, email) при регистрации.</li>
+                        <li>Техническую информацию (IP-адрес, тип браузера) для аналитики.</li>
+                        <li>Контент, который вы публикуете в своих статьях.</li>
+                    </ul>
+
+                    <h2>3. Использование данных</h2>
+                    <p>Ваши данные используются исключительно для персонализации интерфейса, возможности публикации статей и связи с вами по важным обновлениям платформы.</p>
+
+                    <h2>4. Безопасность</h2>
+                    <p>Все персональные данные хранятся в зашифрованном виде. Мы не передаем вашу информацию третьим лицам, за исключением случаев, предусмотренных законодательством.</p>
+
+                    <h2>5. Контакты</h2>
+                    <p>По всем вопросам обработки данных вы можете писать нам на <a href="mailto:vloge@gmail.com">vloge@gmail.com</a>.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__column">
+                    <div class="footer__logo">
+                        <img src="/img/logo/logo-black.png" alt="VLOGE" class="footer__logo-img">
+                    </div>
+                    <div class="footer__contacts">
+                        <a href="tel:+77007007070" class="footer__phone">+7 (700) 700-70-70</a>
+                        <a href="mailto:vloge@gmail.com" class="footer__email">vloge@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__divider"></div>
+                <p class="footer__copyright">© VLOGE 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/profile.js"></script>
+</body>
+</html>
